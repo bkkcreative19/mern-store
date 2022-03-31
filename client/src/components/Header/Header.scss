@@ -1,0 +1,45 @@
+.header {
+  border-bottom: 0.1rem solid rgba(196, 196, 196, 0.267);
+  padding: 2.5em 0;
+
+  &__nav {
+    display: flex;
+    align-items: center;
+
+    &-logo {
+      font-size: 3rem;
+      letter-spacing: 0.6rem;
+    }
+
+    &-list,
+    &-icons {
+      display: flex;
+      align-items: center;
+    }
+
+    &-list {
+      margin-left: 2.5em;
+
+      & li {
+        margin-left: 2.5em;
+
+        & a {
+          font-size: 1.5rem;
+          color: #121212;
+        }
+      }
+    }
+
+    &-icons {
+      margin-left: auto;
+      & svg {
+        font-size: 2.2rem;
+        cursor: pointer;
+      }
+
+      & svg:not(:last-child) {
+        margin-right: 0.7em;
+      }
+    }
+  }
+}

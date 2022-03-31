@@ -1,17 +1,20 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 
-import { Header } from "./components";
-import { HomePage } from "./pages";
+import { Announcement, Header } from "./components";
+import { HomePage, ProductsPage } from "./pages";
 
 import "./App.scss";
 
 const App = () => {
   return (
     <>
+      <Announcement />
       <Header />
-      <Routes>{/* <Route path="/" element={<HomePage />} /> */}</Routes>
-      hi
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/products/:id" element={<ProductsPage />} />
+      </Routes>
     </>
   );
 };
