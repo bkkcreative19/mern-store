@@ -4,7 +4,7 @@ import * as productConstants from "../constants/productConstants";
 
 // filters, initialLoading
 
-export const listProducts = () => async (dispatch) => {
+export const listProducts = (category) => async (dispatch) => {
   // dispatch({
   //   type: productConstants.PRODUCTLIST_FETCH_SUCCESS,
   //   // payload: { results, count },
@@ -16,7 +16,7 @@ export const listProducts = () => async (dispatch) => {
     // }
     dispatch({ type: productConstants.PRODUCTLIST_FETCH_START });
     // productServices.filterParams(filters);
-    const res = await productServices.fetchProducts();
+    const res = await productServices.fetchProducts(category);
 
     // const { results, count } = await productServices.fetchProducts();
     dispatch({

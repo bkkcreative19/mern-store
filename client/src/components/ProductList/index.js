@@ -5,7 +5,7 @@ import "./ProductList.scss";
 
 export const ProductList = ({ products }) => {
   return (
-    <section className="products container">
+    <section style={{ marginTop: "8em" }} className="products container">
       {products &&
         products.map((product) => {
           return <Product key={product._id} product={product} />;
