@@ -2,7 +2,6 @@ import React from "react";
 import "./Product.scss";
 
 export const Product = ({ product }) => {
-  console.log(product);
   return (
     <div className="product">
       <img src={product.productImage} alt="product" className="product__img" />
