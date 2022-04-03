@@ -1,7 +1,9 @@
 const { getProducts } = require("../controller/productController");
-
+const advanceResults = require("../middleware/advancedResults");
 const router = require("express").Router();
 
-router.get("/:category", getProducts);
+const Product = require("../models/productModel");
+
+router.get("/:category", advanceResults(Product), getProducts);
 
 module.exports = router;

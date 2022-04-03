@@ -32,7 +32,7 @@ export const ProductsPage = () => {
   return (
     <section className="container">
       <Filter handleFilters={handleFilters} filters={filters} />
-      <ProductList products={products} />
+      <ProductList products={products.results} />
     </section>
   );
 };
