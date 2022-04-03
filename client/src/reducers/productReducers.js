@@ -22,3 +22,25 @@ export const productListReducer = (state = { products: [] }, action) => {
       return state;
   }
 };
+export const productDetailsReducer = (state = { product: null }, action) => {
+  switch (action.type) {
+    case productConstants.PRODUCT_DETAILS_FETCH_START:
+      return {
+        loading: true,
+        product: null,
+      };
+    case productConstants.PRODUCT_DETAILS_FETCH_SUCCESS:
+      return {
+        product: action.payload,
+        // count: action.payload.count,
+        success: true,
+      };
+    case productConstants.PRODUCT_DETAILS_FETCH_ERROR:
+      return {
+        error: action.payload,
+      };
+
+    default:
+      return state;
+  }
+};

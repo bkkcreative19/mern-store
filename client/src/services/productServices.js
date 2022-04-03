@@ -3,10 +3,18 @@ import axios from "axios";
 export const fetchProducts = async (category, filters) => {
   console.log(filters);
   const { data } = await axios.get(
-    `http://localhost:5000/api/v1/product/${category}`,
+    `http://localhost:5000/api/v1/product/all/${category}`,
     {
       params: { ...filters },
     }
+  );
+
+  return data;
+};
+
+export const fetchProductDetails = async (id) => {
+  const { data } = await axios.get(
+    `http://localhost:5000/api/v1/product/${id}`
   );
 
   return data;

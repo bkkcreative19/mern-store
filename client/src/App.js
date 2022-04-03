@@ -2,7 +2,7 @@ import React from "react";
 import { Routes, Route } from "react-router-dom";
 
 import { Announcement, Header } from "./components";
-import { HomePage, ProductsPage } from "./pages";
+import { HomePage, ProductDetailsPage, ProductsPage } from "./pages";
 
 import "./App.scss";
 
@@ -14,6 +14,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/products/:id" element={<ProductsPage />} />
+        <Route path="/product/:id" element={<ProductDetailsPage />} />
       </Routes>
     </>
   );

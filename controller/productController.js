@@ -26,6 +26,13 @@ const getProducts = asyncHandler(async (req, res, next) => {
   //   }
 });
 
+const getProduct = asyncHandler(async (req, res, next) => {
+  const product = await Product.findById(req.params.id);
+
+  res.send(product);
+});
+
 module.exports = {
   getProducts,
+  getProduct,
 };

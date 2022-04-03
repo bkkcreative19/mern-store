@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
-
+import Skeleton from "react-loading-skeleton";
+import "react-loading-skeleton/dist/skeleton.css";
 import { listProducts } from "../../actions/productActions";
 import { Filter, ProductList } from "../../components";
 
@@ -14,8 +15,9 @@ export const ProductsPage = () => {
 
   const productList = useSelector((state) => state.productList);
 
+  console.log(productList);
+
   const { loading, error, products } = productList;
-  // console.log(filters);
 
   const handleFilters = (key, value) => {
     setFilters({ ...filters, [key]: value });
@@ -32,7 +34,11 @@ export const ProductsPage = () => {
   return (
     <section className="container">
       <Filter handleFilters={handleFilters} filters={filters} />
-      <ProductList products={products.results} />
+      {loading ? (
+        <Skeleton height={400} />
+      ) : (
+        <ProductList products={products.results} />
+      )}
     </section>
   );
 };
