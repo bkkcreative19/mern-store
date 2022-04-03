@@ -27,7 +27,9 @@ export const Header = () => {
         <div className="header__nav-icons">
           <AiOutlineSearch />
           <AiOutlineUser />
-          <RiShoppingBag2Line />
+          <Link to="/cart">
+            <RiShoppingBag2Line />
+          </Link>
         </div>
       </nav>
     </header>
