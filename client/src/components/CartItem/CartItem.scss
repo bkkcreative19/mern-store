@@ -1,0 +1,9 @@
+.cartItem {
+  & img {
+    width: 107px;
+  }
+
+  &__info {
+    width: 50rem;
+  }
+}

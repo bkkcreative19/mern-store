@@ -22,7 +22,6 @@ export const ProductDetailsPage = () => {
 
   const addToCartHandler = () => {
     dispatch(addToCart(params.id, qty));
-    navigate("/cart");
   };
 
   useEffect(() => {
