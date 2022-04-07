@@ -5,7 +5,7 @@ import * as cartConstants from "../constants/cartConstants";
 export const addToCart = (id, qty) => async (dispatch, getState) => {
   try {
     const data = await productServices.fetchProductDetails(id);
-    console.log(data);
+
     dispatch({
       type: cartConstants.ADD_TO_CART_ITEM,
       payload: payLoadForCartItem(data, qty),
