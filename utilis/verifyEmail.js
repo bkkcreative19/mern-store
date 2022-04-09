@@ -1,9 +1,7 @@
 const sgMail = require("@sendgrid/mail");
 
 const verifyEmail = async (options) => {
-  sgMail.setApiKey(
-    "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"
-  );
+  sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
   let FROM_NAME = "kris";
   let FROM_EMAIL = "bkkcreative18@gmail.com";
