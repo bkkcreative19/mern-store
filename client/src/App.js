@@ -9,9 +9,11 @@ import {
   CartPage,
   Login,
   Register,
+  Profile,
 } from "./pages";
 
 import "./App.scss";
+import { PrivateRoute } from "./routes";
 
 const App = () => {
   return (
@@ -19,12 +21,17 @@ const App = () => {
       <Announcement />
       <Header />
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/products/:id" element={<ProductsPage />} />
-        <Route path="/product/:id" element={<ProductDetailsPage />} />
-        <Route path="/cart" element={<CartPage />} />
-        <Route path="account/login" element={<Login />} />
-        <Route path="account/register" element={<Register />} />
+        <Route exact path="/" element={<HomePage />} />
+        <Route exact path="/products/:id" element={<ProductsPage />} />
+        <Route exact path="/product/:id" element={<ProductDetailsPage />} />
+        <Route exact path="/cart" element={<CartPage />} />
+        <Route exact path="account/login" element={<Login />} />
+        <Route exact path="account/register" element={<Register />} />
+        <Route exact path="/profile" element={<PrivateRoute />}>
+          <Route exact path="/profile" element={<Profile />} />
+        </Route>
+
+        {/* <PrivateRoute exact={true} path={"/profile"} component={Profile} /> */}
       </Routes>
     </>
   );

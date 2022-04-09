@@ -14,7 +14,7 @@ require("dotenv").config();
 connectDb();
 
 //rouets
-// const authRouter = require("./routes/auth");
+const authRouter = require("./routes/authRoutes");
 // const userRouter = require("./routes/user");
 const productRouter = require("./routes/productRoutes");
 // const reviewRouter = require("./routes/review");
@@ -32,7 +32,7 @@ app.use(morgan("tiny"));
 
 app.use(cors());
 
-// app.use("/api/v1/auth", authRouter);
+app.use("/api/v1/auth", authRouter);
 // app.use("/api/v1/user", userRouter);
 app.get("/api", (req, res) => {
   res.send("hi");

@@ -31,7 +31,7 @@ export const Header = () => {
         </ul>
         <div className="header__nav-icons">
           <AiOutlineSearch />
-          <Link to="/account/login">
+          <Link to="/profile">
             <AiOutlineUser />
           </Link>
           <Link to="/cart">
