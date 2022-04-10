@@ -1,9 +1,9 @@
 const express = require("express");
 
-const colors = require("colors");
+// const colors = require("colors");
 const path = require("path");
 const cors = require("cors");
-const morgan = require("morgan");
+// const morgan = require("morgan");
 // const fileUpload = require("express-fileupload");
 // const { unknownEndpoints, errorHandler } = require("./middleware/error");
 const connectDb = require("./config/db");
@@ -22,7 +22,7 @@ const productRouter = require("./routes/productRoutes");
 // const categoryRouter = require("./routes/category");
 
 app.use(express.json());
-app.use(morgan("tiny"));
+// app.use(morgan("tiny"));
 
 // app.use(
 //   fileUpload({
@@ -65,15 +65,13 @@ const PORT = process.env.PORT || 5001;
 
 const server = app.listen(
   PORT,
-  console.log(
-    `Server running in ${process.env.NODE_ENV} mode on port ${PORT}`.yellow.bold
-  )
+  console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`)
 );
 
 //Handle unhandle promise rejection
 
 process.on("unhandledRejection", (err, promise) => {
-  console.log(`Error: ${err.message}`.red.bold);
+  console.log(`Error: ${err.message}`);
   //close the server
   server.close(() => process.exit(1));
 });
