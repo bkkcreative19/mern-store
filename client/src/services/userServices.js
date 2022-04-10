@@ -5,24 +5,22 @@ import axios from "axios";
  * @param {Object} body
  * @returns {Object} data
  */
+
+const deployedURL = "https://store-mern-kris.herokuapp.com";
+const localURL = "http://localhost:5000";
+
 export const registerUser = async (body) => {
-  const { data } = await axios.post(
-    `https://store-mern-kris.herokuapp.com/api/v1/auth/register`,
-    {
-      body,
-    }
-  );
+  const { data } = await axios.post(`${localURL}/api/v1/auth/register`, {
+    body,
+  });
 
   return data;
 };
 
 export const login = async (body) => {
-  const { data } = await axios.post(
-    `https://store-mern-kris.herokuapp.com/api/v1/auth/login`,
-    {
-      body,
-    }
-  );
+  const { data } = await axios.post(`${localURL}/api/v1/auth/login`, {
+    body,
+  });
 
   return data;
 };

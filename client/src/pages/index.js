@@ -5,3 +5,6 @@ export * from "./CartPage";
 export * from "./Login";
 export * from "./Register";
 export * from "./Profile";
+export * from "./Shipping";
+export * from "./Payment";
+export * from "./PlaceOrder";

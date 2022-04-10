@@ -20,7 +20,7 @@ export const Header = () => {
         </Link>
         <ul className="header__nav-list">
           <li>
-            <Link to="/products/shoes">Shoesss</Link>
+            <Link to="/products/shoes">Shoes</Link>
           </li>
           <li>
             <Link to="/products/shirts">Shirts</Link>

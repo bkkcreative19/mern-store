@@ -10,6 +10,9 @@ import {
   Login,
   Register,
   Profile,
+  Shipping,
+  Payment,
+  PlaceOrder,
 } from "./pages";
 
 import "./App.scss";
@@ -30,6 +33,16 @@ const App = () => {
         <Route exact path="/profile" element={<PrivateRoute />}>
           <Route exact path="/profile" element={<Profile />} />
         </Route>
+        <Route exact path="/shipping" element={<PrivateRoute />}>
+          <Route exact path="/shipping" element={<Shipping />} />
+        </Route>
+        <Route exact path="/payment" element={<PrivateRoute />}>
+          <Route exact path="/payment" element={<Payment />} />
+        </Route>
+        <Route exact path="/place-order" element={<PrivateRoute />}>
+          <Route exact path="/place-order" element={<PlaceOrder />} />
+        </Route>
+        {/* <Route exact path="/shipping" element={<Shipping />} /> */}
 
         {/* <PrivateRoute exact={true} path={"/profile"} component={Profile} /> */}
       </Routes>

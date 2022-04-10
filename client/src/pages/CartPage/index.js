@@ -1,13 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { CartItem } from "../../components";
 import "./Cart.scss";
 
 export const CartPage = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const cart = useSelector((state) => state.cart);
+  const userLogin = useSelector((state) => state.userLogin);
 
+  const { userInfo } = userLogin;
+  console.log(userInfo);
   const { cartItems } = cart;
 
   const [total, setTotal] = useState(
@@ -19,6 +23,14 @@ export const CartPage = () => {
       cartItems.reduce((acc, item) => acc + item.qty * item.price, 0).toFixed(2)
     );
   }, [cartItems]);
+
+  const handleCheckout = () => {
+    // history.push({
+    //   pathname: routes.LOGIN,
+    //   search: `?redirect=${routes.SHIPPING}`,
+    // });
+    navigate("/shipping");
+  };
 
   return (
     <section className="cart container">
@@ -41,6 +53,9 @@ export const CartPage = () => {
         </tbody>
       </table>
       ${total}
+      <button onClick={handleCheckout} className="checkout">
+        Check out
+      </button>
     </section>
   );
 };

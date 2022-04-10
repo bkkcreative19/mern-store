@@ -18,7 +18,7 @@ const authRouter = require("./routes/authRoutes");
 // const userRouter = require("./routes/user");
 const productRouter = require("./routes/productRoutes");
 // const reviewRouter = require("./routes/review");
-// const orderRouter = require("./routes/order");
+const orderRouter = require("./routes/orderRoutes");
 // const categoryRouter = require("./routes/category");
 
 app.use(express.json());
@@ -39,7 +39,7 @@ app.get("/api", (req, res) => {
 });
 app.use("/api/v1/product", productRouter);
 // app.use("/api/v1/review", reviewRouter);
-// app.use("/api/v1/order", orderRouter);
+app.use("/api/v1/order", orderRouter);
 // app.use("/api/v1/category", categoryRouter);
 
 // app.get("/api/config/paypal", (req, res) =>

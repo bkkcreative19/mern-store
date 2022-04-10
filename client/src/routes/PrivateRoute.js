@@ -6,7 +6,7 @@ export const PrivateRoute = ({ component: Component, ...rest }) => {
   const userAuthData = useSelector((state) => state.userLogin);
 
   const { userInfo } = userAuthData;
-  console.log(userInfo);
+
   return userInfo ? <Outlet /> : <Navigate to="/account/login" />;
   // <Route
   //   {...rest}
