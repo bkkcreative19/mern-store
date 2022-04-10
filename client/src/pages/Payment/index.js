@@ -31,7 +31,7 @@ export const Payment = () => {
         value={paymentMethod}
         onChange={(e) => setPaymentMethod(e.target.value)}
       />
-      <button onClick={submitHandler}>Next</button>
+      <button onClick={submitHandler}>Nextt</button>
     </section>
   );
 };
