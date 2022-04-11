@@ -1,10 +1,8 @@
 import axios from "axios";
-
-const deployedURL = "https://store-mern-kris.herokuapp.com";
-const localURL = "http://localhost:5000";
+import { apiUrl } from "../utils/api";
 
 export const createOrder = async (body) => {
-  const { data } = await axios.post(`${localURL}/api/v1/order`, {
+  const { data } = await axios.post(`${apiUrl}/order`, {
     body,
     accessToken: true,
   });

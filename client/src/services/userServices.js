@@ -1,16 +1,13 @@
 import axios from "axios";
-
+import { apiUrl } from "../utils/api";
 /**
  *
  * @param {Object} body
  * @returns {Object} data
  */
 
-const deployedURL = "https://store-mern-kris.herokuapp.com";
-const localURL = "http://localhost:5000";
-
 export const registerUser = async (body) => {
-  const { data } = await axios.post(`${localURL}/api/v1/auth/register`, {
+  const { data } = await axios.post(`${apiUrl}/auth/register`, {
     body,
   });
 
@@ -18,7 +15,7 @@ export const registerUser = async (body) => {
 };
 
 export const login = async (body) => {
-  const { data } = await axios.post(`${localURL}/api/v1/auth/login`, {
+  const { data } = await axios.post(`${apiUrl}/auth/login`, {
     body,
   });
 

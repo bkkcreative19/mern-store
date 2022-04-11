@@ -1,22 +1,17 @@
 import axios from "axios";
-
-const deployedURL = "https://store-mern-kris.herokuapp.com";
-const localURL = "http://localhost:5000";
+import { apiUrl } from "../utils/api";
 
 export const fetchProducts = async (category, filters) => {
   console.log(filters);
-  const { data } = await axios.get(
-    `${localURL}/api/v1/product/all/${category}`,
-    {
-      params: { ...filters },
-    }
-  );
+  const { data } = await axios.get(`${apiUrl}/product/all/${category}`, {
+    params: { ...filters },
+  });
 
   return data;
 };
 
 export const fetchProductDetails = async (id) => {
-  const { data } = await axios.get(`${localURL}/api/v1/product/${id}`);
+  const { data } = await axios.get(`${apiUrl}/product/${id}`);
 
   return data;
 };
