@@ -56,19 +56,19 @@ const OrderSchema = new mongoose.Schema({
   payment: PaymentSchema,
   itemsPrice: {
     type: Number,
-    required: [true, "Please add a Items price"],
+    // required: [true, "Please add a Items price"],
   },
   taxPrice: {
     type: Number,
-    required: [true, "Please add a tax price"],
+    // required: [true, "Please add a tax price"],
   },
   shippingPrice: {
     type: Number,
-    required: [true, "Please add a shipping price"],
+    // required: [true, "Please add a shipping price"],
   },
   totalPrice: {
     type: Number,
-    required: [true, "Please add a total price"],
+    // required: [true, "Please add a total price"],
   },
   isPaid: {
     type: Boolean,
@@ -93,7 +93,7 @@ const OrderSchema = new mongoose.Schema({
   userId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
-    required: true,
+    // required: true,
   },
   createdAt: {
     type: Date,

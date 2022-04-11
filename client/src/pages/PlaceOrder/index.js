@@ -7,6 +7,8 @@ export const PlaceOrder = () => {
   const cart = useSelector((state) => state.cart);
   const { shippingAddress, paymentMethod, cartItems } = cart;
 
+  console.log(cartItems);
+
   const placeOrderHandler = () => {
     dispatch(
       createOrder({

@@ -11,7 +11,7 @@ export const CartPage = () => {
   const userLogin = useSelector((state) => state.userLogin);
 
   const { userInfo } = userLogin;
-  console.log(userInfo);
+  // console.log(userInfo);
   const { cartItems } = cart;
 
   const [total, setTotal] = useState(

@@ -9,7 +9,7 @@ export const Shipping = () => {
   const cart = useSelector((state) => state.cart);
   const { shippingAddress, cartItems } = cart;
 
-  console.log(cart);
+  // console.log(cart);
 
   const [address, setAddress] = useState(shippingAddress.address);
   const [city, setCity] = useState(shippingAddress.city);

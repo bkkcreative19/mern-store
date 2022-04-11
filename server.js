@@ -38,8 +38,10 @@ app.get("/api", (req, res) => {
   res.send("hi");
 });
 app.use("/api/v1/product", productRouter);
+
 // app.use("/api/v1/review", reviewRouter);
 app.use("/api/v1/order", orderRouter);
+
 // app.use("/api/v1/category", categoryRouter);
 
 // app.get("/api/config/paypal", (req, res) =>
