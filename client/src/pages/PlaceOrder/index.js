@@ -38,7 +38,7 @@ export const PlaceOrder = () => {
         <h3>Payment Method</h3>
         <span>Method: {paymentMethod}</span>
       </div>
-      <h3>Order Itemss</h3>
+      <h3>Order Itemsss</h3>
       <ul>
         {cartItems.map((item) => {
           <li key={item.productId}>
