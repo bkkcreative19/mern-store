@@ -1,5 +1,62 @@
 .filter-sort {
-  margin: 3em 0;
+  margin-bottom: 2em;
+  margin-top: 2.5em;
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: #181818bd;
+
+  & .filter,
+  & .sort {
+    display: flex;
+    align-items: center;
+
+    & h3 {
+      font-weight: inherit;
+      margin-right: 1.5em;
+    }
+  }
+
+  & .sort {
+    margin-left: auto;
+    margin-right: 2em;
+  }
+
+  & .filter details:not(:first-child) {
+    margin-left: 2.5em;
+  }
+
+  & .filter .first {
+    margin-left: 0 !important;
+  }
+}
+
+details {
+  position: relative;
+
+  // & h3 {
+  //   position: absolute;
+  // }
+}
+
+summary {
+  list-style: none;
+  display: flex;
+  align-items: center;
+
+  & svg {
+    margin-left: 0.5em;
+    cursor: pointer;
+  }
+
+  // & span {
+
+  // }
+
+  // &::after {
+  //   content: "↓";
+  // }
 }
 
 .hi {

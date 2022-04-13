@@ -6,6 +6,8 @@ import "react-loading-skeleton/dist/skeleton.css";
 import { listProducts } from "../../actions/productActions";
 import { Filter, ProductList } from "../../components";
 
+import "./ProductsPage.scss";
+
 export const ProductsPage = () => {
   const dispatch = useDispatch();
   const params = useParams();
@@ -15,7 +17,7 @@ export const ProductsPage = () => {
 
   const productList = useSelector((state) => state.productList);
 
-  console.log(productList);
+  // console.log(productList);
 
   const { loading, error, products } = productList;
 
@@ -32,8 +34,13 @@ export const ProductsPage = () => {
   }, [dispatch, params.id, filters]);
 
   return (
-    <section className="container">
-      <Filter handleFilters={handleFilters} filters={filters} />
+    <section className="products-page container">
+      <h2>Products</h2>
+      <Filter
+        numOfProducts={products.count}
+        handleFilters={handleFilters}
+        filters={filters}
+      />
       {loading ? (
         <Skeleton height={400} />
       ) : (

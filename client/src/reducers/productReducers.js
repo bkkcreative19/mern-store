@@ -10,7 +10,7 @@ export const productListReducer = (state = { products: [] }, action) => {
     case productConstants.PRODUCTLIST_FETCH_SUCCESS:
       return {
         products: action.payload,
-        // count: action.payload.count,
+        // count: action.payload.results.count,
         success: true,
       };
     case productConstants.PRODUCTLIST_FETCH_ERROR:

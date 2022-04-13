@@ -1,5 +1,5 @@
 import axios from "axios";
-import { apiUrl } from "../utils/api";
+import { apiUrl } from "../utils/apiURL";
 /**
  *
  * @param {Object} body

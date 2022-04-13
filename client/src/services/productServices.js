@@ -1,8 +1,8 @@
 import axios from "axios";
-import { apiUrl } from "../utils/api";
+import { apiUrl } from "../utils/apiURL";
 
 export const fetchProducts = async (category, filters) => {
-  console.log(filters);
+  // console.log(filters);
   const { data } = await axios.get(`${apiUrl}/product/all/${category}`, {
     params: { ...filters },
   });

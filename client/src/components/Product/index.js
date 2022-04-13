@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Image from "../../images/image1.jpg";
 
 import "./Product.scss";
 
