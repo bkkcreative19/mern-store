@@ -1,7 +1,7 @@
 const advanceResults = (model, populate) => async (req, res, next) => {
   //JSON.Stringify Convert the javascript object into string | when sending data to server, the data has to be string
   //JSON.parse Convert the string into javascript Object | when server send data, data is always a string, so parse the data to convert into js Object
-
+  // console.log(req.query);
   let query;
 
   const reqQuery = { ...req.query };
@@ -18,12 +18,29 @@ const advanceResults = (model, populate) => async (req, res, next) => {
   queryStr = queryStr.replace(/\b(gt|gte|lt|lte|in)/g, (match) => `$${match}`);
 
   //Finding resource
-  query = model.find(JSON.parse(queryStr));
+  if (req.params.category === "all") {
+    query = model.find();
+  } else {
+    query = model.find({ category: req.params.category });
+  }
+
+  // console.log(req.query);
   // console.log(JSON.parse(req.query));
   //Select
   if (req.query.select) {
     const select = req.query.select.split(",").join(" ");
     query = query.select(select);
+  }
+
+  // console.log(req.query.priceRange);
+
+  if (req.query.priceRange !== undefined) {
+    const priceRange = JSON.parse(req.query.priceRange);
+
+    query = query
+      .where("price")
+      .lt(Number(priceRange.lessThan))
+      .gte(Number(priceRange.greaterThan));
   }
 
   //Sort

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Dropdown from "react-dropdown";
 import { IoIosArrowDown } from "react-icons/io";
 
@@ -17,7 +17,12 @@ export const Filter = ({ handleFilters, filters, numOfProducts }) => {
     { value: "Date, new to old", label: "Date, new to old" },
   ];
 
-  const [test, setTest] = React.useState(options[2]);
+  const [test, setTest] = React.useState(options[0]);
+  const [lessThan, setLessThan] = useState();
+  const [greaterThan, setGreaterThan] = useState();
+  // const [from, setFrom] = useState();
+  // const [to, setTo] = useState();
+  // const [priceRange, setPriceRange] = useState();
 
   // const handleChange = (e) => {
   //   setTest(e.target.value);
@@ -55,6 +60,12 @@ export const Filter = ({ handleFilters, filters, numOfProducts }) => {
     handleFilters("sort", test.value);
   }, [test]);
 
+  useEffect(() => {
+    // console.log(test.value);
+
+    handleFilters("priceRange", { lessThan, greaterThan });
+  }, [lessThan, greaterThan]);
+
   return (
     <section className="filter-sort">
       <div className="filter">
@@ -69,6 +80,18 @@ export const Filter = ({ handleFilters, filters, numOfProducts }) => {
         <details>
           <summary>
             <span>Price</span>
+            <input
+              onChange={(e) => setLessThan(e.target.value)}
+              type="number"
+              name="from"
+              id=""
+            />
+            <input
+              onChange={(e) => setGreaterThan(e.target.value)}
+              type="number"
+              name="to"
+              id=""
+            />
             <IoIosArrowDown />
           </summary>
           {/* <h3>hi</h3> */}

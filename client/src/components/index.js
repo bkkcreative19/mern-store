@@ -5,3 +5,5 @@ export * from "./Announcement";
 export * from "./Filter";
 export * from "./ProductDetails";
 export * from "./CartItem";
+export * from "./Hero";
+export * from "./Featured";

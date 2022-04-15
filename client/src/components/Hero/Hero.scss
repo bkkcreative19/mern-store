@@ -1,0 +1,42 @@
+.hero {
+  height: 80vh;
+  background: url("../../images/priscilla-du-preez-JGyRJlk3idE-unsplash.jpg")
+    no-repeat center;
+  background-size: cover;
+  color: #fff;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  font-size: 2rem;
+
+  &__content {
+    margin-bottom: 7em;
+    text-align: center;
+
+    & h2 {
+      font-size: 6rem;
+      font-weight: 400;
+      letter-spacing: 0.2rem;
+    }
+
+    & p {
+      font-size: 1.7rem;
+      opacity: 0.95;
+      letter-spacing: 0.1rem;
+      margin-top: 0.5em;
+    }
+
+    & button {
+      margin-top: 2.5em;
+      padding: 1em 2.5em;
+      background: transparent;
+      color: #fff;
+      font-family: "Assistant";
+      font-size: 1.5rem;
+      letter-spacing: 0.1rem;
+      border: none;
+      border: 1px solid #fff;
+      cursor: pointer;
+    }
+  }
+}

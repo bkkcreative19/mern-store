@@ -13,9 +13,12 @@ export const ProductsPage = () => {
   const params = useParams();
 
   const [sort, setSort] = useState("");
+  const [priceRange, setPriceRange] = useState("");
   const [filters, setFilters] = useState({});
 
   const productList = useSelector((state) => state.productList);
+
+  console.log(productList);
 
   // console.log(productList);
 
@@ -45,6 +48,7 @@ export const ProductsPage = () => {
         <Skeleton height={400} />
       ) : (
         <ProductList products={products.results} />
+        // <ProductList products={products} />
       )}
     </section>
   );
