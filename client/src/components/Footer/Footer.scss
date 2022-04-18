@@ -1,0 +1,101 @@
+.footer {
+  margin: 6em 0;
+  border-top: 1px solid #18181821;
+  padding-top: 4em;
+
+  &__links div ul {
+    margin-top: 2.3em;
+  }
+
+  &__links {
+    display: flex;
+    justify-content: space-between;
+
+    & div h2 {
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: #181818;
+    }
+
+    & div ul li {
+      font-size: 1.4rem;
+      color: #181818bb;
+
+      &:not(:first-child) {
+        color: red !important;
+      }
+    }
+
+    & .mission p {
+      font-size: 1.6rem;
+      color: #181818bb;
+      width: 75%;
+      text-align: start;
+      margin-top: 2.3rem;
+      line-height: 1.8;
+    }
+  }
+
+  &__newsletter {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2em;
+
+    & .email {
+      width: 30%;
+      & h2 {
+        font-size: 1.8rem;
+        font-weight: 400;
+        color: #181818;
+        margin-bottom: 1.5em;
+      }
+
+      & .field {
+        border: 1px solid #181818;
+        padding: 1.5rem;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        justify-content: space-between;
+
+        & input {
+          border: none;
+          padding-right: 5rem;
+
+          &::placeholder {
+            color: #181818b0;
+            letter-spacing: 0.1rem;
+          }
+        }
+        & button {
+          background: transparent;
+          border: none;
+          font-size: 1.6rem;
+        }
+      }
+    }
+
+    & .socials {
+      display: flex;
+      margin-right: 12.6em;
+      align-items: flex-end;
+
+      & li {
+        padding: 1.3rem;
+
+        & svg {
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+
+  &__content-bottom {
+    border-bottom: 1px solid #18181821;
+    padding-bottom: 4em;
+  }
+}
+
+.mt {
+  margin-top: 1.6rem;
+}

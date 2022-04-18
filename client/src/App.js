@@ -1,7 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 
-import { Announcement, Header } from "./components";
+import { Announcement, Footer, Header } from "./components";
 import {
   HomePage,
   ProductDetailsPage,
@@ -46,6 +46,7 @@ const App = () => {
 
         {/* <PrivateRoute exact={true} path={"/profile"} component={Profile} /> */}
       </Routes>
+      <Footer />
     </>
   );
 };
