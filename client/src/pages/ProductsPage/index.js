@@ -13,17 +13,13 @@ export const ProductsPage = () => {
   const params = useParams();
 
   const [sort, setSort] = useState("");
-  const [priceRange, setPriceRange] = useState("");
+  const [priceRange, setPriceRange] = useState(null);
   const [filters, setFilters] = useState({});
 
   const productList = useSelector((state) => state.productList);
-
   console.log(productList);
-
-  // console.log(productList);
-
   const { loading, error, products } = productList;
-
+  console.log(productList);
   const handleFilters = (key, value) => {
     setFilters({ ...filters, [key]: value });
   };
@@ -38,6 +34,7 @@ export const ProductsPage = () => {
 
   return (
     <section className="products-page container">
+      {" "}
       <h2>Products</h2>
       <Filter
         numOfProducts={products.count}
@@ -46,9 +43,11 @@ export const ProductsPage = () => {
       />
       {loading ? (
         <Skeleton height={400} />
-      ) : (
+      ) : products ? (
         <ProductList products={products.results} />
+      ) : (
         // <ProductList products={products} />
+        "hi"
       )}
     </section>
   );

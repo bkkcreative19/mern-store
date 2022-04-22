@@ -1,0 +1,14 @@
+ <details>
+          <summary>
+            <span>Color</span>
+            <IoIosArrowDown />
+          </summary>
+          {/* <h3>hi</h3> */}
+        </details>
+        <details>
+          <summary>
+            <span>Product type</span>
+            <IoIosArrowDown />
+          </summary>
+          {/* <h3>hi</h3> */}
+        </details>

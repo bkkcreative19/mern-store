@@ -6,7 +6,7 @@ export const fetchProducts = async (category, filters) => {
   const { data } = await axios.get(`${apiUrl}/product/all/${category}`, {
     params: { ...filters },
   });
-
+  // console.log(res);
   return data;
 };
 

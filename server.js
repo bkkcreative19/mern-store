@@ -3,7 +3,7 @@ const express = require("express");
 // const colors = require("colors");
 const path = require("path");
 const cors = require("cors");
-// const morgan = require("morgan");
+const morgan = require("morgan");
 // const fileUpload = require("express-fileupload");
 // const { unknownEndpoints, errorHandler } = require("./middleware/error");
 const connectDb = require("./config/db");
@@ -22,7 +22,7 @@ const orderRouter = require("./routes/orderRoutes");
 // const categoryRouter = require("./routes/category");
 
 app.use(express.json());
-// app.use(morgan("tiny"));
+app.use(morgan("tiny"));
 
 // app.use(
 //   fileUpload({

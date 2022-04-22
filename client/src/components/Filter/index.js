@@ -19,7 +19,7 @@ export const Filter = ({ handleFilters, filters, numOfProducts }) => {
 
   const [test, setTest] = React.useState(options[0]);
   const [lessThan, setLessThan] = useState();
-  const [greaterThan, setGreaterThan] = useState();
+  // const [greaterThan, setGreaterThan] = useState();
   // const [from, setFrom] = useState();
   // const [to, setTo] = useState();
   // const [priceRange, setPriceRange] = useState();
@@ -62,9 +62,9 @@ export const Filter = ({ handleFilters, filters, numOfProducts }) => {
 
   useEffect(() => {
     // console.log(test.value);
-
-    handleFilters("priceRange", { lessThan, greaterThan });
-  }, [lessThan, greaterThan]);
+    handleFilters(`price[lt]`, lessThan);
+    // handleFilters("priceRange", lessThan);
+  }, [lessThan]);
 
   return (
     <section className="filter-sort">
@@ -85,31 +85,19 @@ export const Filter = ({ handleFilters, filters, numOfProducts }) => {
               type="number"
               name="from"
               id=""
+              placeholder="less than"
             />
-            <input
+            {/* <input
               onChange={(e) => setGreaterThan(e.target.value)}
               type="number"
               name="to"
-              id=""
-            />
+              id="" */}
+
             <IoIosArrowDown />
           </summary>
           {/* <h3>hi</h3> */}
         </details>
-        <details>
-          <summary>
-            <span>Color</span>
-            <IoIosArrowDown />
-          </summary>
-          {/* <h3>hi</h3> */}
-        </details>
-        <details>
-          <summary>
-            <span>Product type</span>
-            <IoIosArrowDown />
-          </summary>
-          {/* <h3>hi</h3> */}
-        </details>
+        {/*goes here*/}
         {/* <Dropdown
           className="hi"
           options={options}
