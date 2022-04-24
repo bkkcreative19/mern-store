@@ -9,11 +9,10 @@ export const Product = ({ product }) => {
     <>
       <Link to={`/product/${product._id}`}>
         <div className="product">
-          <img
-            src={product.productImage}
-            alt="product"
-            className="product__img"
-          />
+          <div className="product__img">
+            <img src={product.productImage} alt="product" />
+          </div>
+
           <h3>{product.name}</h3>
           <span>${product.price}.00 CAD</span>
         </div>

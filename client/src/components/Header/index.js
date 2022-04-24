@@ -23,10 +23,10 @@ export const Header = () => {
             <Link to="/products/shoes">Shoes</Link>
           </li>
           <li>
-            <Link to="/products/shirts">Shirts</Link>
+            <Link to="/products/bags">Bags</Link>
           </li>
           <li>
-            <Link to="/products/bags">Bags</Link>
+            <Link to="/products/lookbook">Lookbook</Link>
           </li>
         </ul>
         <div className="header__nav-icons">
