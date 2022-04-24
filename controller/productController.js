@@ -33,7 +33,14 @@ const getProduct = asyncHandler(async (req, res, next) => {
   res.send(product);
 });
 
+const getFeaturedProducts = asyncHandler(async (req, res, next) => {
+  const products = await Product.find({ featured: true });
+
+  res.send(products);
+});
+
 module.exports = {
   getProducts,
   getProduct,
+  getFeaturedProducts,
 };

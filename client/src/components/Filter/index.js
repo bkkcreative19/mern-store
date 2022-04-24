@@ -80,13 +80,13 @@ export const Filter = ({ handleFilters, filters, numOfProducts }) => {
         <details>
           <summary>
             <span>Price</span>
-            <input
+            {/* <input
               onChange={(e) => setLessThan(e.target.value)}
               type="number"
               name="from"
               id=""
               placeholder="less than"
-            />
+            /> */}
             {/* <input
               onChange={(e) => setGreaterThan(e.target.value)}
               type="number"
@@ -97,7 +97,20 @@ export const Filter = ({ handleFilters, filters, numOfProducts }) => {
           </summary>
           {/* <h3>hi</h3> */}
         </details>
-        {/*goes here*/}
+        <details>
+          <summary>
+            <span>Color</span>
+            <IoIosArrowDown />
+          </summary>
+          {/* <h3>hi</h3> */}
+        </details>
+        <details>
+          <summary>
+            <span>Product type</span>
+            <IoIosArrowDown />
+          </summary>
+          {/* <h3>hi</h3> */}
+        </details>
         {/* <Dropdown
           className="hi"
           options={options}

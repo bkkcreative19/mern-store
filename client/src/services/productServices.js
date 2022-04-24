@@ -10,6 +10,12 @@ export const fetchProducts = async (category, filters) => {
   return data;
 };
 
+export const fetchFeaturedProducts = async () => {
+  const { data } = await axios.get(`${apiUrl}/product/featured`);
+
+  return data;
+};
+
 export const fetchProductDetails = async (id) => {
   const { data } = await axios.get(`${apiUrl}/product/${id}`);
 

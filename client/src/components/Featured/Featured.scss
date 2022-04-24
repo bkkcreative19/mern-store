@@ -1,0 +1,19 @@
+.featured {
+  margin: 4em auto !important;
+  text-align: center;
+
+  &__head {
+    & h3 {
+      font-size: 4rem;
+      color: #181818;
+      font-weight: 400;
+    }
+
+    & p {
+      font-size: 1.6rem;
+      color: #181818bd;
+      margin-top: 1em;
+      margin-bottom: 3em;
+    }
+  }
+}

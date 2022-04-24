@@ -35,6 +35,30 @@ export const listProducts = (category, filters) => async (dispatch) => {
     // });
   }
 };
+
+export const listFeaturedProducts = () => async (dispatch) => {
+  try {
+    dispatch({
+      type: productConstants.PRODUCTLIST_FEATURED_FETCH_START,
+      loading: true,
+    });
+
+    const res = await productServices.fetchFeaturedProducts();
+
+    dispatch({
+      type: productConstants.PRODUCTLIST_FEATURED_FETCH_SUCCESS,
+      // payload: { results, count },
+      loading: false,
+      payload: res,
+    });
+  } catch (err) {
+    dispatch({
+      type: productConstants.PRODUCTLIST_FEATURED_FETCH_ERROR,
+      payload: err,
+    });
+  }
+};
+
 export const listProductDetails = (id) => async (dispatch) => {
   // dispatch({
   //   type: productConstants.PRODUCTLIST_FETCH_SUCCESS,
