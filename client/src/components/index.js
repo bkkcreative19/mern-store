@@ -8,3 +8,4 @@ export * from "./CartItem";
 export * from "./Hero";
 export * from "./Featured";
 export * from "./Footer";
+export * from "./BackInStock";

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Featured, Hero } from "../../components";
+import { BackInStock, Featured, Hero } from "../../components";
 import { useSelector, useDispatch } from "react-redux";
 import { listFeaturedProducts } from "../../actions/productActions";
 
@@ -20,6 +20,7 @@ export const HomePage = () => {
     <section className="home">
       <Hero />
       <Featured products={featuredProducts} />
+      <BackInStock />
     </section>
   );
 };
