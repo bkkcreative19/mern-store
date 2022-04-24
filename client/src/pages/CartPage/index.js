@@ -11,7 +11,7 @@ export const CartPage = () => {
   const userLogin = useSelector((state) => state.userLogin);
 
   const { userInfo } = userLogin;
-  // console.log(userInfo);
+
   const { cartItems } = cart;
 
   const [total, setTotal] = useState(
@@ -34,28 +34,33 @@ export const CartPage = () => {
 
   return (
     <section className="cart container">
-      <div className="cart__head">
-        <h2>Your cart</h2>
-        <Link to="/">Continue shopping</Link>
-      </div>
-      <table className="cartItems">
-        <thead>
-          <tr>
-            <th>Product</th>
-            <th>Quantity</th>
-            <th>Total</th>
-          </tr>
-        </thead>
-        <tbody>
-          {cartItems.map((cartItem) => {
-            return <CartItem key={cartItem.productId} cartItem={cartItem} />;
-          })}
-        </tbody>
-      </table>
-      ${total}
+      {cartItems.length === 0 ? (
+        <h1>Your cart is empty</h1>
+      ) : (
+        <>
+          <div className="cart__head">
+            <h2>Your cart</h2>
+            <Link to="/">Continue shopping</Link>
+          </div>
+          <div className="cart__products-section">
+            <div className="cart__products-section-head">
+              <h4>Product</h4>
+              <h4>Quantity</h4>
+              <h4>Total</h4>
+            </div>
+            <div className="cart__products-section-products">
+              {cartItems.map((item) => {
+                return <CartItem key={item.productId} cartItem={item} />;
+              })}
+            </div>
+          </div>
+        </>
+      )}
+
+      {/* ${total}
       <button onClick={handleCheckout} className="checkout">
         Check out
-      </button>
+      </button> */}
     </section>
   );
 };

@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import "./CartItem.scss";
 import CircleLoader from "react-spinners/CircleLoader";
 import { RiDeleteBin6Line } from "react-icons/ri";
-import { addToCart } from "../../actions/cartActions";
+import { addToCart, removeFromCart } from "../../actions/cartActions";
 
 export const CartItem = ({ cartItem }) => {
   const testt = useRef();
@@ -13,11 +13,18 @@ export const CartItem = ({ cartItem }) => {
 
   const handleQty = () => {};
 
+  const removeFromCartHandler = (id) => {
+    dispatch(removeFromCart(id));
+  };
+
   const handleChange = (e) => {
     let test = qty;
 
     if (e.target.classList.contains("minus")) {
-      if (qty === 1) return;
+      if (qty === 1) {
+        removeFromCartHandler(cartItem.productId);
+        return;
+      }
       test = test - 1;
     } else {
       test = test + 1;
@@ -30,20 +37,16 @@ export const CartItem = ({ cartItem }) => {
   }, [qty, dispatch]);
 
   return (
-    <tr className="cartItem">
-      <td className="cartItem__img-and-details">
+    <div className="cart-item">
+      <div className="cart-item__info">
         <img src={cartItem.productImage} alt="" />
         <div className="details">
           <h3>{cartItem.productName}</h3>
           <p>${cartItem.price}.00</p>
         </div>
-      </td>
-      {/* <td className="cartItem__img">
-        <img src={cartItem.productImage} alt="" />
-      </td>
-      <td className="cartItem__info">{cartItem.productName}</td> */}
-      <td className="cartItem__qty">
-        <div className="options">
+      </div>
+      <div className="cart-item__quantity-change">
+        <div className="input">
           <span onClick={(e) => handleChange(e)} className="change minus">
             -
           </span>
@@ -53,10 +56,14 @@ export const CartItem = ({ cartItem }) => {
           <span onClick={(e) => handleChange(e)} className="change add">
             +
           </span>
-          <RiDeleteBin6Line />
         </div>
-      </td>
-      <td className="cartItem__total">${cartItem.price * qty}.00</td>
-    </tr>
+
+        <RiDeleteBin6Line
+          onClick={() => removeFromCartHandler(cartItem.productId)}
+          className="delete-icon"
+        />
+      </div>
+      <p className="cart-item__total">${cartItem.price * qty}.00</p>
+    </div>
   );
 };
