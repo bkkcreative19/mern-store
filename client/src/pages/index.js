@@ -8,3 +8,4 @@ export * from "./Profile";
 export * from "./Shipping";
 export * from "./Payment";
 export * from "./PlaceOrder";
+export * from "./CheckoutSteps";

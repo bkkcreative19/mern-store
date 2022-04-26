@@ -83,7 +83,7 @@ export const Footer = () => {
           </ul>
         </div>
       </section>
-      <section className="footer__content-bottom">hi</section>
+      <section className="footer__content-bottom"></section>
     </footer>
   );
 };

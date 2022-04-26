@@ -9,3 +9,6 @@ export * from "./Hero";
 export * from "./Featured";
 export * from "./Footer";
 export * from "./BackInStock";
+export * from "./Information";
+export * from "./Shipping";
+export * from "./Payment";

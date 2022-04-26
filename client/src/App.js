@@ -13,6 +13,7 @@ import {
   Shipping,
   Payment,
   PlaceOrder,
+  CheckoutSteps,
 } from "./pages";
 
 import "./App.scss";
@@ -30,6 +31,7 @@ const App = () => {
         <Route exact path="/cart" element={<CartPage />} />
         <Route exact path="account/login" element={<Login />} />
         <Route exact path="account/register" element={<Register />} />
+
         <Route exact path="/profile" element={<PrivateRoute />}>
           <Route exact path="/profile" element={<Profile />} />
         </Route>
@@ -43,7 +45,7 @@ const App = () => {
           <Route exact path="/place-order" element={<PlaceOrder />} />
         </Route>
         {/* <Route exact path="/shipping" element={<Shipping />} /> */}
-
+        <Route exact path="/checkout/:step" element={<CheckoutSteps />} />
         {/* <PrivateRoute exact={true} path={"/profile"} component={Profile} /> */}
       </Routes>
       <Footer />

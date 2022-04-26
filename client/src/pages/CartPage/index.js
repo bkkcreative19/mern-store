@@ -29,7 +29,7 @@ export const CartPage = () => {
     //   pathname: routes.LOGIN,
     //   search: `?redirect=${routes.SHIPPING}`,
     // });
-    navigate("/shipping");
+    navigate("/checkout/information");
   };
 
   return (
@@ -57,10 +57,17 @@ export const CartPage = () => {
         </>
       )}
 
-      {/* ${total}
-      <button onClick={handleCheckout} className="checkout">
-        Check out
-      </button> */}
+      <div className="total">
+        <div className="subtotal">
+          <h3> Subtotal </h3>
+          <p>${total} CAD</p>
+        </div>
+
+        <small>Taxes and shipping calculated at checkout</small>
+        <button onClick={handleCheckout} className="checkout">
+          Check out
+        </button>
+      </div>
     </section>
   );
 };

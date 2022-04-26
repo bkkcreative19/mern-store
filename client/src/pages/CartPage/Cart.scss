@@ -46,6 +46,50 @@
       padding-bottom: 4em;
     }
   }
+
+  & .total {
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-top: 4em;
+    margin-bottom: 4em;
+
+    & .subtotal {
+      display: flex;
+      align-items: center;
+
+      & h3 {
+        font-size: 1.6rem;
+        margin-right: 1em;
+        font-weight: 400;
+        color: #000000;
+      }
+
+      & p {
+        font-size: 1.8rem;
+        color: #181818bb;
+      }
+    }
+
+    & small {
+      font-size: 1.3rem;
+      margin-top: 1em;
+      margin-bottom: 1.3em;
+      color: #121212be;
+    }
+
+    & button {
+      padding: 1em 3em;
+      font-size: 1.4rem;
+      cursor: pointer;
+      border: none;
+      background: #121212;
+      color: #fff;
+      width: 30%;
+      margin-top: 0.3em;
+    }
+  }
 }
 
 .change {
