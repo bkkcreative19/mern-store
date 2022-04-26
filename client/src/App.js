@@ -1,7 +1,14 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 
-import { Announcement, Footer, Header } from "./components";
+import {
+  Announcement,
+  Footer,
+  Header,
+  Information,
+  Payment,
+  Shipping,
+} from "./components";
 import {
   HomePage,
   ProductDetailsPage,
@@ -10,8 +17,6 @@ import {
   Login,
   Register,
   Profile,
-  Shipping,
-  Payment,
   PlaceOrder,
   CheckoutSteps,
 } from "./pages";
@@ -45,8 +50,13 @@ const App = () => {
           <Route exact path="/place-order" element={<PlaceOrder />} />
         </Route>
         {/* <Route exact path="/shipping" element={<Shipping />} /> */}
-        <Route exact path="/checkout/:step" element={<CheckoutSteps />} />
+        <Route path="checkout" element={<CheckoutSteps />}>
+          <Route path="information" element={<Information />} />
+          <Route path="shipping" element={<Shipping />} />
+          <Route path="payment" element={<Payment />} />
+        </Route>
         {/* <PrivateRoute exact={true} path={"/profile"} component={Profile} /> */}
+        <Route path="*" element={<h1>Not found</h1>} />
       </Routes>
       <Footer />
     </>

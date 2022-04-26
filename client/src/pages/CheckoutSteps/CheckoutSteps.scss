@@ -1,0 +1,29 @@
+.checkout {
+  & .left {
+    & .steps {
+      display: flex;
+
+      & div {
+        margin-left: 2em;
+        cursor: pointer;
+        display: inline-block;
+      }
+
+      & div h3 {
+        font-weight: 400;
+      }
+
+      & div:not(:last-child) h3 {
+        &::after {
+          content: ">";
+          height: 4rem;
+          width: 4rem;
+        }
+      }
+    }
+  }
+}
+
+.bold {
+  font-weight: 700 !important;
+}
