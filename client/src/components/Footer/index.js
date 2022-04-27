@@ -10,6 +10,7 @@ import {
 } from "react-icons/ai";
 import { FaTiktok } from "react-icons/fa";
 import { BsArrowRight } from "react-icons/bs";
+import { SocialIcons } from "../SocialIcons";
 
 export const Footer = () => {
   return (
@@ -64,23 +65,7 @@ export const Footer = () => {
               </button>
             </div>
           </div>
-          <ul className="socials">
-            <li>
-              <AiOutlineTwitter />
-            </li>
-            <li>
-              <AiFillFacebook />
-            </li>
-            <li>
-              <AiOutlineInstagram />
-            </li>
-            <li>
-              <FaTiktok />
-            </li>
-            <li>
-              <AiFillYoutube />
-            </li>
-          </ul>
+          <SocialIcons classname="socials" />
         </div>
       </section>
       <section className="footer__content-bottom"></section>

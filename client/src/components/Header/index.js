@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import { AiOutlineSearch, AiOutlineUser } from "react-icons/ai";
@@ -11,6 +11,7 @@ import "./Header.scss";
 import { MobileNav } from "./MobileNav";
 
 export const Header = () => {
+  const location = useLocation();
   const cart = useSelector((state) => state.cart);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -23,6 +24,10 @@ export const Header = () => {
       document.body.style.overflow = "scroll";
     }
   }, [isOpen]);
+
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location.pathname]);
 
   return (
     <header className="header">
@@ -52,7 +57,7 @@ export const Header = () => {
             <Link to="/products/bags">Bags</Link>
           </li>
           <li>
-            <Link to="/products/lookbook">Lookbook</Link>
+            <Link to="/lookbook">Lookbook</Link>
           </li>
         </ul>
         <div className="header__nav-icons">

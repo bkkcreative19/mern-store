@@ -12,3 +12,4 @@ export * from "./BackInStock";
 export * from "./Information";
 export * from "./Shipping";
 export * from "./Payment";
+export * from "./SocialIcons";
