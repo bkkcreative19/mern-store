@@ -1,22 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Dropdown from "react-dropdown";
 import { IoIosArrowDown } from "react-icons/io";
-
+import { RiFilter3Line } from "react-icons/ri";
+import { options } from "../../utils/sortOptions";
 import Select from "react-select";
 import "./Filter.scss";
 
 export const Filter = ({ handleFilters, filters, numOfProducts }) => {
-  const optionss = ["low-to-high", "high-to-low", "Alphabetically, A-Z"];
-
-  const options = [
-    { value: "low-to-high", label: "Price, low-to-high" },
-    { value: "high-to-low", label: "Price, high-to-low" },
-    { value: "Alphabetically, A-Z", label: "Alphabetically, A-Z" },
-    { value: "Alphabetically, Z-A", label: "Alphabetically, Z-A" },
-    { value: "Date, old to new", label: "Date, old to new" },
-    { value: "Date, new to old", label: "Date, new to old" },
-  ];
-
   const [test, setTest] = React.useState(options[0]);
   const [lessThan, setLessThan] = useState();
   // const [greaterThan, setGreaterThan] = useState();
@@ -69,7 +59,10 @@ export const Filter = ({ handleFilters, filters, numOfProducts }) => {
   return (
     <section className="filter-sort">
       <div className="filter">
-        <h3>Filter:</h3>
+        <h3 className="filter__desktop">Filter:</h3>
+        <h3 className="filter__mobile">
+          <RiFilter3Line /> <span>Filter and sort</span>
+        </h3>
         <details className="first">
           <summary>
             <span>Availabilty</span>
@@ -126,6 +119,7 @@ export const Filter = ({ handleFilters, filters, numOfProducts }) => {
           onChange={setTest}
           styles={customStyles}
           options={options}
+          className="select"
         />
       </div>
       <span>{numOfProducts} products</span>

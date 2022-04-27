@@ -8,9 +8,19 @@
     margin-top: 2.3em;
   }
 
+  &__links div:not(:first-child) {
+    @media screen and (max-width: 750px) {
+      margin-top: 2.5em;
+    }
+  }
+
   &__links {
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    @media screen and (max-width: 750px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
 
     & div h2 {
       font-size: 1.8rem;
@@ -30,7 +40,7 @@
     & .mission p {
       font-size: 1.6rem;
       color: #181818bb;
-      width: 75%;
+      width: 70%;
       text-align: start;
       margin-top: 2.3rem;
       line-height: 1.8;
@@ -42,8 +52,19 @@
     justify-content: space-between;
     margin-top: 2em;
 
+    @media screen and (max-width: 750px) {
+      flex-direction: column;
+      align-items: center;
+    }
+
     & .email {
       width: 30%;
+
+      @media screen and (max-width: 750px) {
+        margin-top: 2em;
+        text-align: center;
+        width: 80%;
+      }
       & h2 {
         font-size: 1.8rem;
         font-weight: 400;
@@ -80,6 +101,11 @@
       display: flex;
       margin-right: 12.6em;
       align-items: flex-end;
+
+      @media screen and (max-width: 750px) {
+        margin-right: 0;
+        margin-top: 2em;
+      }
 
       & li {
         padding: 1.3rem;

@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 
 import { AiOutlineSearch, AiOutlineUser } from "react-icons/ai";
 import { RiShoppingBag2Line } from "react-icons/ri";
+import { GiHamburgerMenu } from "react-icons/gi";
 
 import "./Header.scss";
 
@@ -15,9 +16,11 @@ export const Header = () => {
   return (
     <header className="header">
       <nav className="header__nav container">
+        <GiHamburgerMenu className="header__nav-hamburger" />
         <Link to="/">
           <h2 className="header__nav-logo">CUE</h2>
         </Link>
+
         <ul className="header__nav-list">
           <li>
             <Link to="/products/shoes">Shoes</Link>
@@ -33,7 +36,7 @@ export const Header = () => {
           <AiOutlineSearch />
 
           <Link to="/profile">
-            <AiOutlineUser />
+            <AiOutlineUser className="user-icon" />
           </Link>
           <Link to="/cart">
             <RiShoppingBag2Line />

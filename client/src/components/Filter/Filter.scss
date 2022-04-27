@@ -7,6 +7,36 @@
   font-weight: 400;
   color: #181818bd;
 
+  & .filter {
+    &__mobile {
+      display: none;
+
+      @media screen and (max-width: 900px) {
+        display: flex;
+        align-items: center;
+      }
+
+      & span {
+        margin-left: 0.5em;
+      }
+    }
+
+    &__desktop {
+      @media screen and (max-width: 900px) {
+        display: none;
+      }
+    }
+  }
+
+  & details,
+  .sort,
+  .select,
+  .sort h3 {
+    @media screen and (max-width: 900px) {
+      display: none;
+    }
+  }
+
   & .filter,
   & .sort {
     display: flex;
