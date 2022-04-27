@@ -1,6 +1,7 @@
 .header {
   border-bottom: 0.1rem solid rgba(196, 196, 196, 0.267);
   padding: 2.5em 0;
+  position: relative;
 
   &__nav {
     display: flex;

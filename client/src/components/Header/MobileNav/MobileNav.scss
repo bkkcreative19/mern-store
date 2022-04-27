@@ -1,0 +1,22 @@
+.mobile-nav {
+  background-color: #fff;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  top: 100;
+  transform: translateY(100%);
+  visibility: hidden;
+  height: 100vh;
+  width: 80%;
+  transition: visibility 2s, opacity 2s ease-in 5s;
+  z-index: 1000;
+  overflow: hidden;
+
+  @media screen and (max-width: 960px) {
+    visibility: visible;
+  }
+}
+
+.mobile-nav::-webkit-scrollbar {
+  display: none;
+}
