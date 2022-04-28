@@ -17,9 +17,9 @@ export const ProductsPage = () => {
   const [filters, setFilters] = useState({});
 
   const productList = useSelector((state) => state.productList);
-  console.log(productList);
+
   const { loading, error, products } = productList;
-  console.log(productList);
+
   const handleFilters = (key, value) => {
     setFilters({ ...filters, [key]: value });
   };

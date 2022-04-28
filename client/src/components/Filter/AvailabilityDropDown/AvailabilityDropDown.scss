@@ -1,0 +1,27 @@
+.availability-dropdown {
+  position: absolute;
+  z-index: 1000;
+  border: 1px solid #18181818;
+  background: #fff;
+  top: 4rem;
+  width: 348px;
+  padding: 0.5em 0;
+
+  & .head {
+    display: flex;
+    border-bottom: 1px solid rgba(24, 24, 24, 0.185);
+    padding: 1em;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  & .options {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+
+    & span {
+      cursor: pointer;
+    }
+  }
+}

@@ -17,7 +17,7 @@ const filterProducts = (model) => async (req, res, next) => {
   //Create query string
   let queryStr = JSON.stringify(reqQuery);
   // console.log("3", queryStr);
-
+  // console.log(typeof Number(JSON.parse(req.query.price).lt));
   //Create operators ($gt,gte,lt,lte)
   queryStr = queryStr.replace(/\b(gt|gte|lt|lte|in)/g, (match) => `$${match}`);
 
@@ -71,7 +71,19 @@ const filterProducts = (model) => async (req, res, next) => {
   if (req.query.price) {
     const priceRange = Number(req.query.price.lt);
     // console.log("price", priceRange);
-    query = query.where("price").lt(priceRange);
+    // query = query.where("price").lt(priceRange) && query.where("price").gt(200);
+    query = query
+      .where("price")
+      .gt(Number(JSON.parse(req.query.price).lt))
+      .lt(Number(JSON.parse(req.query.price).gt));
+  }
+
+  if (req.query.isInStock) {
+    if (req.query.isInStock === "true") {
+      query = query.where({ countInStock: { $gt: 0 } });
+    } else {
+      query = query.where({ countInStock: 0 });
+    }
   }
 
   // //Sort
@@ -115,8 +127,6 @@ const filterProducts = (model) => async (req, res, next) => {
 
   // //Execute Query
   const results = await query;
-
-  // console.log(results);
 
   //Pagination Result
   // const pagination = {};
