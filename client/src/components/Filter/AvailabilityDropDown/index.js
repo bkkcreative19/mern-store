@@ -6,7 +6,7 @@ export const AvailabilityDropDown = ({ setInStock }) => {
     <article className="availability-dropdown">
       <div className="head">
         <h3>0 selected</h3>
-        <p>Reset</p>
+        <p onClick={() => setInStock(null)}>Reset</p>
       </div>
       <div className="options">
         <span onClick={() => setInStock(true)} className="in-stock">

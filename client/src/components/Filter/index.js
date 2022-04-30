@@ -59,6 +59,9 @@ export const Filter = ({ handleFilters, filters, numOfProducts }) => {
     // },
   };
 
+  console.log("less", lessThan);
+  console.log("greater", greaterThan);
+
   useEffect(() => {
     // console.log(test.value);
     handleFilters("sort", test.value);
@@ -71,11 +74,12 @@ export const Filter = ({ handleFilters, filters, numOfProducts }) => {
 
   useEffect(() => {
     // console.log(test.value);
+    // if (greaterThan && lessThan) {
+    //   handleFilters(`price`, { lt: lessThan, gt: greaterThan });
+    // }
     if (greaterThan && lessThan) {
-      handleFilters(`price`, { lt: lessThan, gt: greaterThan });
+      handleFilters(`price`, [lessThan, greaterThan]);
     }
-
-    // handleFilters("priceRange", lessThan);
   }, [lessThan, greaterThan]);
 
   return (
@@ -100,6 +104,8 @@ export const Filter = ({ handleFilters, filters, numOfProducts }) => {
           <PriceDropDown
             setGreaterThan={setGreaterThan}
             setLessThan={setLessThan}
+            lessThan={lessThan}
+            greaterThan={greaterThan}
           />
         </details>
         {/* <details>

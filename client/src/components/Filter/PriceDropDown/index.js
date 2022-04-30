@@ -1,14 +1,23 @@
 import React, { useState } from "react";
 import "./PriceDropDown.scss";
 
-export const PriceDropDown = ({ setLessThan, setGreaterThan }) => {
+export const PriceDropDown = ({
+  setLessThan,
+  setGreaterThan,
+  greaterThan,
+  lessThan,
+}) => {
   // const [lessThan, setLessThan] = useState();
   // const [greaterThan, setGreaterThan] = useState();
+  const reset = () => {
+    setGreaterThan(null);
+    setLessThan(null);
+  };
   return (
     <aside className="price-dropdown">
       <div className="head">
         <h3>The Highest Price is $615.00</h3>
-        <p>Reset</p>
+        <p onClick={reset}>Reset</p>
       </div>
       <div className="options">
         <input

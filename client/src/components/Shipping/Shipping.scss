@@ -1,0 +1,108 @@
+.shipping {
+  margin-top: 5em;
+  padding-right: 4em;
+
+  & .info {
+    border: 1px solid #12121218;
+    padding: 0 1.4em;
+
+    & .contact,
+    & .ship-to {
+      display: flex;
+      font-size: 1.6rem;
+
+      & p {
+        margin-left: 4em;
+        color: #545454;
+      }
+
+      & h4 {
+        color: #737373;
+        font-weight: 400;
+      }
+    }
+
+    & .contact {
+      border-bottom: 1px solid #12121218;
+      padding: 1em 0;
+    }
+
+    & .ship-to {
+      padding: 1em 0;
+    }
+  }
+
+  & .shipping-method {
+    & h2 {
+      font-size: 1.8rem;
+      color: #403331;
+      font-weight: 400;
+      margin-top: 1.8em;
+      margin-bottom: 0.8em;
+    }
+
+    & .standard,
+    & .express {
+      border: 1px solid #12121218;
+      padding: 2em;
+      border-radius: 0.5em;
+      display: flex;
+
+      & .text {
+        margin-left: 1.5em;
+
+        & p:first-child {
+          font-size: 1.6rem;
+          color: #222222;
+        }
+        & p:last-child {
+          font-size: 1.4rem;
+          color: #737373;
+        }
+      }
+
+      & span {
+        display: inline-block;
+        margin-left: auto;
+        font-size: 1.6rem;
+        color: #333;
+        font-weight: 500;
+      }
+    }
+
+    & .standard {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    & .express {
+      border-top: none;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+  }
+
+  & .buttons {
+    margin-top: 2em;
+
+    & button {
+      padding: 1.5em;
+      font-size: 1.5rem;
+      border: none;
+      border-radius: 0.5em;
+      cursor: pointer;
+    }
+
+    & .continue-payment {
+      background: rgb(23, 119, 183);
+      color: #fff;
+      font-weight: 500;
+      margin-right: 0.7em;
+    }
+
+    & .return-to-information {
+      background: transparent;
+      color: rgb(23, 119, 183);
+    }
+  }
+}

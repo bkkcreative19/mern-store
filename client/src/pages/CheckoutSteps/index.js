@@ -13,9 +13,9 @@ export const CheckoutSteps = () => {
   }, [location.pathname]);
 
   return (
-    <section className="checkout container">
+    <section className="checkout__steps container">
       <div className="left">
-        <h1>Cue</h1>
+        {/* <h1>Cue</h1> */}
         <div className="steps">
           <div className="steps__cart">
             <Link to="/cart">
@@ -40,8 +40,9 @@ export const CheckoutSteps = () => {
             </Link>
           </div>
         </div>
+        <Outlet />
       </div>
-      checkout <Outlet />
+      <div className="right">hi</div>
     </section>
   );
 };

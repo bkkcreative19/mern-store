@@ -1,0 +1,50 @@
+.information {
+  padding-right: 4em;
+
+  & h2 {
+    color: rgb(64, 51, 49);
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin-top: 5em;
+  }
+
+  & .info-form {
+    & .name {
+      display: flex;
+      gap: 1.5em;
+    }
+
+    & input {
+      width: 100%;
+      padding: 1.3em 0.8em;
+      border-radius: 0.5em;
+      border: none;
+      border: 1px solid #12121231;
+      margin-top: 1.2em;
+    }
+
+    & .buttons {
+      margin-top: 2em;
+
+      & button {
+        padding: 1.5em;
+        font-size: 1.5rem;
+        border: none;
+        border-radius: 0.5em;
+        cursor: pointer;
+      }
+
+      & .continue-shopping {
+        background: rgb(23, 119, 183);
+        color: #fff;
+        font-weight: 500;
+        margin-right: 0.7em;
+      }
+
+      & .return-to-cart {
+        background: transparent;
+        color: rgb(23, 119, 183);
+      }
+    }
+  }
+}

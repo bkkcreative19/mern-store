@@ -4,22 +4,22 @@ const filterProducts = (model) => async (req, res, next) => {
   // console.log("1", req.query);
   let query;
   // console.log(req.params.category);
-  const reqQuery = { ...req.query };
+  // const reqQuery = { ...req.query };
 
   // console.log("2", reqQuery);
 
-  const removeFeilds = ["select", "sort", "limit", "page"];
+  // const removeFeilds = ["select", "sort", "limit", "page"];
   // console.log("1", reqQuery);
   // console.log(removeFeilds);
-  removeFeilds.forEach((param) => delete reqQuery[param]);
+  // removeFeilds.forEach((param) => delete reqQuery[param]);
   // console.log("2", reqQuery);
 
   //Create query string
-  let queryStr = JSON.stringify(reqQuery);
+  // let queryStr = JSON.stringify(reqQuery);
   // console.log("3", queryStr);
   // console.log(typeof Number(JSON.parse(req.query.price).lt));
   //Create operators ($gt,gte,lt,lte)
-  queryStr = queryStr.replace(/\b(gt|gte|lt|lte|in)/g, (match) => `$${match}`);
+  // queryStr = queryStr.replace(/\b(gt|gte|lt|lte|in)/g, (match) => `$${match}`);
 
   // console.log("4", queryStr);
   //Finding resource
@@ -29,7 +29,7 @@ const filterProducts = (model) => async (req, res, next) => {
   } else {
     query = model.find({ category: req.params.category });
   }
-
+  console.log(req.query);
   // // //Feild to exclude
 
   // const removeFeilds = ["select", "sort", "limit", "page"];
@@ -69,13 +69,10 @@ const filterProducts = (model) => async (req, res, next) => {
   // // console.log(req.query.priceRange);
   // console.log("hi", req.query.price);
   if (req.query.price) {
-    const priceRange = Number(req.query.price.lt);
-    // console.log("price", priceRange);
-    // query = query.where("price").lt(priceRange) && query.where("price").gt(200);
     query = query
       .where("price")
-      .gt(Number(JSON.parse(req.query.price).lt))
-      .lt(Number(JSON.parse(req.query.price).gt));
+      .gt(Number(req.query.price[0]))
+      .lt(Number(req.query.price[1]));
   }
 
   if (req.query.isInStock) {
