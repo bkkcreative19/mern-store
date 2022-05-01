@@ -54,6 +54,15 @@ export const Filter = ({
     handleFilters("isInStock", inStock);
   }, [inStock]);
 
+  useEffect(() => {
+    if (!greaterThan) {
+      setGreaterThan(700);
+    }
+    if (!lessThan) {
+      setLessThan(0);
+    }
+  }, [lessThan, greaterThan]);
+
   return (
     <section className="filter-sort">
       <div className="filter">

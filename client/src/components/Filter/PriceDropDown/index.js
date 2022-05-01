@@ -13,13 +13,31 @@ export const PriceDropDown = ({
     setLessThan(0);
   };
 
-  const handleChange = (e) => {
+  const myDebounce = (cb, d) => {
+    let timer;
+    return function (...args) {
+      if (timer) clearTimeout(timer);
+      timer = setTimeout(() => {
+        cb(...args);
+      }, d);
+    };
+  };
+
+  const handleChange = myDebounce((e) => {
     if (e.target.name === "less") {
       setLessThan(e.target.value);
     } else {
       setGreaterThan(e.target.value);
     }
-  };
+  }, 2000);
+
+  // const handleChange = (e) => {
+  //   if (e.target.name === "less") {
+  //     setLessThan(e.target.value);
+  //   } else {
+  //     setGreaterThan(e.target.value);
+  //   }
+  // };
 
   useEffect(() => {
     handleFilters(`price`, [lessThan, greaterThan]);

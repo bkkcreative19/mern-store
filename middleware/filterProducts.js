@@ -21,7 +21,7 @@ const filterProducts = (model) => async (req, res, next) => {
       query = query.where({ countInStock: 0 });
     }
   }
-
+  console.log(req.query);
   // //Sort
   if (req.query.sort) {
     const sort = req.query.sort.split(",").join(" ");
