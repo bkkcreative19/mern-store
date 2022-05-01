@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./PriceDropDown.scss";
 
 export const PriceDropDown = ({
@@ -6,13 +6,25 @@ export const PriceDropDown = ({
   setGreaterThan,
   greaterThan,
   lessThan,
+  handleFilters,
 }) => {
-  // const [lessThan, setLessThan] = useState();
-  // const [greaterThan, setGreaterThan] = useState();
   const reset = () => {
-    setGreaterThan(null);
-    setLessThan(null);
+    setGreaterThan(700);
+    setLessThan(0);
   };
+
+  const handleChange = (e) => {
+    if (e.target.name === "less") {
+      setLessThan(e.target.value);
+    } else {
+      setGreaterThan(e.target.value);
+    }
+  };
+
+  useEffect(() => {
+    handleFilters(`price`, [lessThan, greaterThan]);
+  }, [lessThan, greaterThan]);
+
   return (
     <aside className="price-dropdown">
       <div className="head">
@@ -21,7 +33,7 @@ export const PriceDropDown = ({
       </div>
       <div className="options">
         <input
-          onChange={(e) => setLessThan(e.target.value)}
+          onChange={handleChange}
           type="number"
           name="less"
           id=""
@@ -29,14 +41,12 @@ export const PriceDropDown = ({
         />
 
         <input
-          onChange={(e) => setGreaterThan(e.target.value)}
+          onChange={handleChange}
           type="number"
           name="greater"
           id=""
           placeholder="To"
         />
-        {/* <span className="in-stock">In Stock</span>
-        <span className="out-stock">Out of Stock</span> */}
       </div>
     </aside>
   );

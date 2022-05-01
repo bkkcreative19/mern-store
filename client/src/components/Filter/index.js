@@ -8,20 +8,20 @@ import { PriceDropDown } from "./PriceDropDown";
 import Select from "react-select";
 import "./Filter.scss";
 
-export const Filter = ({ handleFilters, filters, numOfProducts }) => {
+export const Filter = ({
+  handleFilters,
+  filters,
+  numOfProducts,
+  highestPrice,
+  products,
+}) => {
   const [test, setTest] = React.useState(options[0]);
-  const [lessThan, setLessThan] = useState();
-  const [greaterThan, setGreaterThan] = useState();
+  const [lessThan, setLessThan] = useState(0);
+  const [greaterThan, setGreaterThan] = useState(700);
   const [inStock, setInStock] = useState();
-  // const [greaterThan, setGreaterThan] = useState();
-  // const [from, setFrom] = useState();
-  // const [to, setTo] = useState();
-  // const [priceRange, setPriceRange] = useState();
 
-  // const handleChange = (e) => {
-  //   setTest(e.target.value);
-  // };
   var details = [...document.querySelectorAll("details")];
+
   document.addEventListener("click", function (e) {
     if (!details.some((f) => f.contains(e.target))) {
       details.forEach((f) => f.removeAttribute("open"));
@@ -33,13 +33,7 @@ export const Filter = ({ handleFilters, filters, numOfProducts }) => {
   });
 
   const customStyles = {
-    // option: (provided, state) => ({
-    //   ...provided,
-    //   borderBottom: "1px dotted pink",
-    //   color: state.isSelected ? "red" : "blue",
-    // }),
     control: () => ({
-      // none of react-select's styles are passed to <Control />
       background: "transparent",
       display: "flex",
     }),
@@ -50,37 +44,15 @@ export const Filter = ({ handleFilters, filters, numOfProducts }) => {
       color: "#181818bd",
       cursor: "pointer",
     }),
-
-    // singleValue: (provided, state) => {
-    //   const opacity = state.isDisabled ? 0.5 : 1;
-    //   const transition = "opacity 300ms";
-
-    //   return { ...provided, opacity, transition };
-    // },
   };
 
-  console.log("less", lessThan);
-  console.log("greater", greaterThan);
-
   useEffect(() => {
-    // console.log(test.value);
     handleFilters("sort", test.value);
   }, [test]);
 
   useEffect(() => {
-    // console.log(test.value);
     handleFilters("isInStock", inStock);
   }, [inStock]);
-
-  useEffect(() => {
-    // console.log(test.value);
-    // if (greaterThan && lessThan) {
-    //   handleFilters(`price`, { lt: lessThan, gt: greaterThan });
-    // }
-    if (greaterThan && lessThan) {
-      handleFilters(`price`, [lessThan, greaterThan]);
-    }
-  }, [lessThan, greaterThan]);
 
   return (
     <section className="filter-sort">
@@ -106,22 +78,9 @@ export const Filter = ({ handleFilters, filters, numOfProducts }) => {
             setLessThan={setLessThan}
             lessThan={lessThan}
             greaterThan={greaterThan}
+            handleFilters={handleFilters}
           />
         </details>
-        {/* <details>
-          <summary>
-            <span>Color</span>
-            <IoIosArrowDown />
-          </summary>
-          <h3>hi</h3>
-        </details>
-        <details>
-          <summary>
-            <span>Product type</span>
-            <IoIosArrowDown />
-          </summary>
-          <h3>hi</h3>
-        </details> */}
       </div>
       <div className="sort">
         <h3>Sort by:</h3>

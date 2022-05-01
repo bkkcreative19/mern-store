@@ -10,7 +10,6 @@ export const productListReducer = (state = { products: [] }, action) => {
     case productConstants.PRODUCTLIST_FETCH_SUCCESS:
       return {
         products: action.payload,
-        // count: action.payload.results.count,
         success: true,
       };
     case productConstants.PRODUCTLIST_FETCH_ERROR:
@@ -32,7 +31,7 @@ export const productDetailsReducer = (state = { product: null }, action) => {
     case productConstants.PRODUCT_DETAILS_FETCH_SUCCESS:
       return {
         product: action.payload,
-        // count: action.payload.count,
+
         success: true,
       };
     case productConstants.PRODUCT_DETAILS_FETCH_ERROR:
@@ -58,7 +57,7 @@ export const productListFeaturedReducer = (
     case productConstants.PRODUCTLIST_FEATURED_FETCH_SUCCESS:
       return {
         featuredProducts: action.payload,
-        // count: action.payload.count,
+
         success: true,
       };
     case productConstants.PRODUCTLIST_FEATURED_FETCH_ERROR:
