@@ -18,7 +18,7 @@ export const Footer = () => {
       <section className="footer__content-top container">
         <div className="footer__links">
           <div className="quick-links">
-            <h2>Quick links</h2>
+            <h2 data-testid="footer-header">Quick links</h2>
             <ul>
               <Link to="/products/shoes">
                 <li>Shoes</li>

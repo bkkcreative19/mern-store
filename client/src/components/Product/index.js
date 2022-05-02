@@ -8,7 +8,7 @@ export const Product = ({ product }) => {
   return (
     <>
       <Link to={`/product/${product._id}`}>
-        <div className="product">
+        <div data-testid="product" className="product">
           <div className="product__img">
             <img src={product.productImage} alt="product" />
           </div>
