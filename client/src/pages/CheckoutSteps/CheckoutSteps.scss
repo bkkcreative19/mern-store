@@ -1,37 +1,68 @@
 .checkout__steps {
   display: flex;
+
   & .left {
-    width: 60%;
+    width: 55%;
+
+    & h1 {
+      font-size: 5rem;
+    }
+
+    &-container {
+      width: 60%;
+      margin-left: auto;
+      margin-top: 6em;
+    }
 
     & .steps {
       display: flex;
-      margin-top: 4em;
+      margin-top: 2em;
 
       & div {
-        // margin-left: 2em;
         cursor: pointer;
         display: inline-block;
+        display: flex;
+        align-items: center;
+        font-size: 1.3rem;
+
+        & svg {
+        }
       }
 
       & div h3 {
         font-weight: 400;
+        color: #1777b7;
       }
 
-      & div:not(:last-child) h3 {
-        &::after {
-          content: ">";
-          height: 4rem;
-          width: 4rem;
-        }
+      & div:not(:first-child) h3 {
+        margin: 0 0.5em;
+      }
+
+      & div:first-child h3 {
+        margin-right: 0.5em;
       }
     }
   }
 
   & .right {
-    width: 40%;
+    width: 45%;
+    background: #f9f9f9;
+    height: 100vh;
+    border-left: 1px solid #18181821;
+
+    &-container {
+      width: 60%;
+      margin-right: auto;
+      margin-top: 6em;
+
+      & img {
+        height: 10rem;
+        width: 10rem;
+      }
+    }
   }
 }
 
 .bold {
-  font-weight: 700 !important;
+  color: #181818 !important;
 }

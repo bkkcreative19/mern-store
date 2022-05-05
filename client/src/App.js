@@ -24,14 +24,23 @@ import {
   CheckoutSteps,
 } from "./pages";
 
+import { BrowserRouter as Router, useLocation } from "react-router-dom";
 import "./App.scss";
 import { PrivateRoute } from "./routes";
 
 const App = () => {
+  const location = useLocation();
   return (
     <>
-      <Announcement />
-      <Header />
+      {location.pathname.slice(0, 9) === "/checkout" ? (
+        ""
+      ) : (
+        <>
+          <Announcement />
+          <Header />
+        </>
+      )}
+
       <Routes>
         <Route exact path="/" element={<HomePage />} />
         <Route exact path="/products/:id" element={<ProductsPage />} />
@@ -53,15 +62,17 @@ const App = () => {
           <Route exact path="/place-order" element={<PlaceOrder />} />
         </Route>
         {/* <Route exact path="/shipping" element={<Shipping />} /> */}
-        <Route path="checkout" element={<CheckoutSteps />}>
+
+        {/* <PrivateRoute exact={true} path={"/profile"} component={Profile} /> */}
+        <Route exact path="checkout" element={<CheckoutSteps />}>
           <Route path="information" element={<Information />} />
           <Route path="shipping" element={<Shipping />} />
           <Route path="payment" element={<Payment />} />
         </Route>
-        {/* <PrivateRoute exact={true} path={"/profile"} component={Profile} /> */}
         <Route path="*" element={<h1>Not found</h1>} />
       </Routes>
-      <Footer />
+
+      {location.pathname.slice(0, 9) === "/checkout" ? "" : <Footer />}
     </>
   );
 };
