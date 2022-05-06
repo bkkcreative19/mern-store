@@ -1,0 +1,39 @@
+.payment {
+  padding-right: 4em;
+  margin-top: 3em;
+  & .review-information {
+    border: 1px solid #12121218;
+    padding: 0 1.4em;
+
+    & .contact,
+    & .ship-to,
+    & .method {
+      display: flex;
+      font-size: 1.6rem;
+
+      & p {
+        margin-left: 4em;
+        color: #545454;
+      }
+
+      & h4 {
+        color: #737373;
+        font-weight: 400;
+      }
+    }
+
+    & .contact {
+      border-bottom: 1px solid #12121218;
+      padding: 1em 0;
+    }
+
+    & .ship-to {
+      padding: 1em 0;
+      border-bottom: 1px solid #12121218;
+    }
+
+    & .method {
+      padding: 1em 0;
+    }
+  }
+}

@@ -19,6 +19,7 @@ const authRouter = require("./routes/authRoutes");
 const productRouter = require("./routes/productRoutes");
 // const reviewRouter = require("./routes/review");
 const orderRouter = require("./routes/orderRoutes");
+const paymentRouter = require("./routes/stripe");
 // const categoryRouter = require("./routes/category");
 
 app.use(express.json());
@@ -34,9 +35,7 @@ app.use(cors());
 
 app.use("/api/v1/auth", authRouter);
 // app.use("/api/v1/user", userRouter);
-app.get("/api", (req, res) => {
-  res.send("hi");
-});
+
 app.use("/api/v1/product", productRouter);
 
 // app.use("/api/v1/review", reviewRouter);

@@ -1,5 +1,41 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { CardElement, Elements } from "@stripe/react-stripe-js";
+import { apiUrl } from "../../utils/apiURL";
+import "./Payment.scss";
+import { loadStripe } from "@stripe/stripe-js";
+
+const stripePromise = loadStripe(process.env.REACT_APP_PK_KEY);
 
 export const Payment = () => {
-  return <div>Payment</div>;
+  const cart = useSelector((state) => state.cart);
+  const userLogin = useSelector((state) => state.userLogin);
+
+  const { paymentMethod, shippingAddress } = cart;
+
+  return (
+    <section className="payment">
+      <div className="review-information">
+        <div className="contact">
+          <h4>Contact</h4>
+          <p>{userLogin.userInfo.email}</p>
+        </div>
+        <div className="ship-to">
+          <h4>Ship to</h4>
+          <p>
+            {shippingAddress.address}, {shippingAddress.apartment},{" "}
+            {shippingAddress.city} {shippingAddress.postalCode},{" "}
+            {shippingAddress.country}
+          </p>
+        </div>
+        <div className="method">
+          <h4>Method</h4>
+          <p>
+            {paymentMethod}{" "}
+            <strong>{paymentMethod === "express" ? "$34.90" : "Free"}</strong>
+          </p>
+        </div>
+      </div>
+    </section>
+  );
 };

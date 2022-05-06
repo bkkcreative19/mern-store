@@ -17,14 +17,15 @@ const createOrder = asyncHandler(async (req, res, next) => {
       .toFixed(2);
   };
 
-  // Create a PaymentIntent with the order amount and currency
-  const paymentIntent = await stripe.paymentIntents.create({
-    amount: Number(calculateOrderAmount(items)),
-    currency: "eur",
-    automatic_payment_methods: {
-      enabled: true,
-    },
+  const newOrder = await Order.create({
+    ...req.body,
+    userId: req.user._id,
   });
+
+  res
+    .status(201)
+    .send({ status: "success", message: "New Order Created", data: newOrder });
+  // Create a PaymentIntent with the order amount and currency
 
   res.send({
     clientSecret: paymentIntent.client_secret,

@@ -5,7 +5,7 @@
     color: rgb(64, 51, 49);
     font-size: 1.8rem;
     font-weight: 400;
-    margin-top: 5em;
+    margin-top: 2em;
   }
 
   & .info-form {
@@ -21,6 +21,11 @@
       border: none;
       border: 1px solid #12121231;
       margin-top: 1.2em;
+    }
+
+    & .country-state {
+      display: flex;
+      gap: 2em;
     }
 
     & .buttons {
