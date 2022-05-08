@@ -13,3 +13,4 @@ export * from "./Information";
 export * from "./Shipping";
 export * from "./Payment";
 export * from "./SocialIcons";
+export * from "./CheckoutForm";

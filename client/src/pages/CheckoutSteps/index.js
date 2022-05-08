@@ -51,7 +51,7 @@ export const CheckoutSteps = () => {
               </Link>
             </div>
           </div>
-          <Outlet />
+          <Outlet cart={cart} />
         </div>
       </div>
       <div className="right">

@@ -4,8 +4,11 @@ import { CardElement, Elements } from "@stripe/react-stripe-js";
 import { apiUrl } from "../../utils/apiURL";
 import "./Payment.scss";
 import { loadStripe } from "@stripe/stripe-js";
+import { CheckoutForm } from "../CheckoutForm";
 
-const stripePromise = loadStripe(process.env.REACT_APP_PK_KEY);
+const stripePromise = loadStripe(
+  "pk_test_51KsrI3Lojhc6RaULGw9X45tzHB83ZnxLs0zXuSdgTCZWu7A0abjY3i8LcxF6DMmfPRGdeBTmNns04FSrCbxvAV5x003ibMRE2p"
+);
 
 export const Payment = () => {
   const cart = useSelector((state) => state.cart);
@@ -36,6 +39,9 @@ export const Payment = () => {
           </p>
         </div>
       </div>
+      <Elements stripe={stripePromise}>
+        <CheckoutForm />
+      </Elements>
     </section>
   );
 };
