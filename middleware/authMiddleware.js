@@ -1,12 +1,12 @@
 // const createError = require("../utilis/createError");
 const verifyToken = require("../utilis/jwt");
 const asyncHandler = require("../middleware/async");
-const User = require("../models/User");
+const User = require("../models/userModel");
 
 const protect = asyncHandler(async (req, res, next) => {
   const authorization = req.headers["authorization"];
   if (!(authorization && authorization.toLowerCase().startsWith("bearer")))
-    throw createError(401, "Not authorized");
+    throw Error(401, "Not authorized");
   //Or check for cookie...
 
   const token = authorization.split(" ")[1];

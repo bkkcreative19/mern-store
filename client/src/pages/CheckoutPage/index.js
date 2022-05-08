@@ -5,10 +5,10 @@ import { useSelector } from "react-redux";
 import "./CheckoutSteps.scss";
 import { IoIosArrowForward } from "react-icons/io";
 
-export const CheckoutSteps = () => {
+export const CheckoutPage = () => {
   const location = useLocation();
   const cart = useSelector((state) => state.cart);
-  console.log(cart);
+
   const [test, setTest] = useState(location.pathname.split("/")[2]);
 
   useEffect(() => {

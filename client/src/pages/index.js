@@ -6,4 +6,4 @@ export * from "./Login";
 export * from "./Register";
 export * from "./Profile";
 export * from "./PlaceOrder";
-export * from "./CheckoutSteps";
+export * from "./CheckoutPage";

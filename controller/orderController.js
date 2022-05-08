@@ -2,38 +2,40 @@ const asyncHandler = require("../middleware/async");
 const stripe = require("stripe")(process.env.SK_key);
 const Order = require("../models/orderModel");
 
-const createOrder = asyncHandler(async (req, res, next) => {
-  // console.log(req.body.body);
-  // const newOrder = await Order.create({
-  //   ...req.body.body,
-  //   // userId: req.user._id,
-  // });
-  const { items } = req.body;
-  console.log(items);
+// @desc    Create new order
+// @route   POST /api/orders
+// @access  Private
+const createOrder = asyncHandler(async (req, res) => {
+  const {
+    orderItems,
+    shippingAddress,
+    paymentMethod,
+    itemsPrice,
+    taxPrice,
+    shippingPrice,
+    totalPrice,
+  } = req.body;
 
-  const calculateOrderAmount = (items) => {
-    return req.body
-      .reduce((acc, item) => acc + item.qty * item.price, 0)
-      .toFixed(2);
-  };
+  if (orderItems && orderItems.length === 0) {
+    res.status(400);
+    throw new Error("No order items");
+    return;
+  } else {
+    const order = new Order({
+      orderItems,
+      user: req.user._id,
+      shippingAddress,
+      paymentMethod,
+      itemsPrice,
+      taxPrice,
+      shippingPrice,
+      totalPrice,
+    });
 
-  const newOrder = await Order.create({
-    ...req.body,
-    userId: req.user._id,
-  });
+    const createdOrder = await order.save();
 
-  res
-    .status(201)
-    .send({ status: "success", message: "New Order Created", data: newOrder });
-  // Create a PaymentIntent with the order amount and currency
-
-  res.send({
-    clientSecret: paymentIntent.client_secret,
-  });
-
-  // res
-  //   .status(201)
-  //   .send({ status: "success", message: "New Order Created", data: newOrder });
+    res.status(201).json(createdOrder);
+  }
 });
 
 module.exports = {

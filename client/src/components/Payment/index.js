@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { CardElement, Elements } from "@stripe/react-stripe-js";
 import { apiUrl } from "../../utils/apiURL";
+import axios from "axios";
 import "./Payment.scss";
 import { loadStripe } from "@stripe/stripe-js";
 import { CheckoutForm } from "../CheckoutForm";
@@ -39,6 +40,7 @@ export const Payment = () => {
           </p>
         </div>
       </div>
+
       <Elements stripe={stripePromise}>
         <CheckoutForm />
       </Elements>

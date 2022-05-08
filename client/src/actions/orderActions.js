@@ -4,7 +4,6 @@ import * as orderConstants from "../constants/orderConstants";
 import * as cartConstants from "../constants/cartConstants";
 
 export const createOrder = (orderData) => async (dispatch) => {
-  console.log(orderData);
   try {
     dispatch({ type: orderConstants.CREATE_ORDER_START });
 

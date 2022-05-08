@@ -21,7 +21,7 @@ import {
   Register,
   Profile,
   PlaceOrder,
-  CheckoutSteps,
+  CheckoutPage,
 } from "./pages";
 
 import { BrowserRouter as Router, useLocation } from "react-router-dom";
@@ -64,7 +64,7 @@ const App = () => {
         {/* <Route exact path="/shipping" element={<Shipping />} /> */}
 
         {/* <PrivateRoute exact={true} path={"/profile"} component={Profile} /> */}
-        <Route exact path="checkout" element={<CheckoutSteps />}>
+        <Route exact path="checkout" element={<CheckoutPage />}>
           <Route path="information" element={<Information />} />
           <Route path="shipping" element={<Shipping />} />
           <Route path="payment" element={<Payment />} />
