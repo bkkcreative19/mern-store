@@ -22,3 +22,22 @@ export const createOrderReducer = (state = { order: {} }, action) => {
       return state;
   }
 };
+export const listOrderReducer = (state = { orders: [] }, action) => {
+  switch (action.type) {
+    case orderConstants.ORDERLIST_FETCH_START:
+      return {
+        loading: true,
+      };
+    case orderConstants.ORDERLIST_FETCH_SUCCESS:
+      return {
+        success: true,
+        orders: action.payload,
+      };
+    case orderConstants.ORDERLIST_FETCH_FAIL:
+      return {
+        error: action.payload,
+      };
+    default:
+      return state;
+  }
+};

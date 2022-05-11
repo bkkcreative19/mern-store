@@ -1,3 +1,5 @@
+const req = require("express/lib/request");
+const res = require("express/lib/response");
 const asyncHandler = require("../middleware/async");
 const stripe = require("stripe")(process.env.SK_key);
 const Order = require("../models/orderModel");
@@ -38,6 +40,13 @@ const createOrder = asyncHandler(async (req, res) => {
   }
 });
 
+const getOrders = asyncHandler(async (req, res) => {
+  // console.log(req.user);
+  const orders = await Order.find({ user: req.user._id });
+  res.status(201).json(orders);
+});
+
 module.exports = {
   createOrder,
+  getOrders,
 };

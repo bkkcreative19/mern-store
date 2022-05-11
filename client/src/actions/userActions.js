@@ -57,3 +57,8 @@ export const register =
       });
     }
   };
+
+export const logout = () => (dispatch) => {
+  tokenService.removeToken();
+  dispatch({ type: userConstants.RESET });
+};

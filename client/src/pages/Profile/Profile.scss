@@ -1,0 +1,35 @@
+.profile {
+  & h2 {
+    font-size: 4rem;
+    margin-top: 1.5em;
+    font-weight: 500;
+  }
+
+  & .logout {
+    margin-top: 1em;
+    font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    & span {
+      text-decoration: underline;
+      margin-left: 0.6em;
+      text-underline-offset: 0.15em;
+    }
+  }
+
+  & .logout:hover {
+    & span {
+      text-decoration-thickness: 0.15em;
+    }
+  }
+  & .orders {
+    margin-top: 6em;
+
+    & h3 {
+      font-size: 2.4rem;
+      font-weight: 400;
+    }
+  }
+}

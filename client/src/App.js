@@ -46,10 +46,14 @@ const App = () => {
         <Route exact path="/products/:id" element={<ProductsPage />} />
         <Route exact path="/product/:id" element={<ProductDetailsPage />} />
         <Route exact path="/cart" element={<CartPage />} />
-        <Route exact path="account/login" element={<Login />} />
+        <Route exact path="account/login/:redirect" element={<Login />} />
         <Route exact path="account/register" element={<Register />} />
 
-        <Route exact path="/profile" element={<PrivateRoute />}>
+        <Route
+          exact
+          path="/profile"
+          element={<PrivateRoute redirctParam="profile" />}
+        >
           <Route exact path="/profile" element={<Profile />} />
         </Route>
         <Route exact path="/shipping" element={<PrivateRoute />}>
@@ -64,11 +68,18 @@ const App = () => {
         {/* <Route exact path="/shipping" element={<Shipping />} /> */}
 
         {/* <PrivateRoute exact={true} path={"/profile"} component={Profile} /> */}
-        <Route exact path="checkout" element={<CheckoutPage />}>
-          <Route path="information" element={<Information />} />
-          <Route path="shipping" element={<Shipping />} />
-          <Route path="payment" element={<Payment />} />
+        <Route
+          exact
+          path="/checkout"
+          element={<PrivateRoute redirctParam="checkout-information" />}
+        >
+          <Route exact path="/checkout" element={<CheckoutPage />}>
+            <Route path="information" element={<Information />} />
+            <Route path="shipping" element={<Shipping />} />
+            <Route path="payment" element={<Payment />} />
+          </Route>
         </Route>
+
         <Route path="*" element={<h1>Not found</h1>} />
       </Routes>
 

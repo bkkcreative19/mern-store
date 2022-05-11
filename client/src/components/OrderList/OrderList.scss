@@ -1,0 +1,32 @@
+.order-list {
+  margin-top: 2em;
+  & .orderItem {
+    border: 1px solid #12121227;
+    margin-top: 1.5em;
+    padding: 1.5em;
+
+    & .order-id {
+      font-size: 2rem;
+    }
+
+    &__list {
+      display: flex;
+      flex-direction: column;
+      margin-top: 2em;
+      gap: 2rem;
+      &-item {
+        display: flex;
+
+        & p {
+          margin-left: 2em;
+          font-size: 1.4rem;
+        }
+      }
+    }
+  }
+
+  & img {
+    width: 10rem;
+    height: 10rem;
+  }
+}

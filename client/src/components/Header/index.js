@@ -61,7 +61,7 @@ export const Header = () => {
           </li>
         </ul>
         <div className="header__nav-icons">
-          <AiOutlineSearch />
+          {/* <AiOutlineSearch /> */}
 
           <Link to="/profile">
             <AiOutlineUser className="user-icon" />

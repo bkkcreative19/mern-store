@@ -54,20 +54,19 @@ export const CartPage = () => {
               })}
             </div>
           </div>
+          <div className="total">
+            <div className="subtotal">
+              <h3> Subtotal </h3>
+              <p>${total} CAD</p>
+            </div>
+
+            <small>Taxes and shipping calculated at checkout</small>
+            <button onClick={handleCheckout} className="checkout">
+              Check out
+            </button>
+          </div>
         </>
       )}
-
-      <div className="total">
-        <div className="subtotal">
-          <h3> Subtotal </h3>
-          <p>${total} CAD</p>
-        </div>
-
-        <small>Taxes and shipping calculated at checkout</small>
-        <button onClick={handleCheckout} className="checkout">
-          Check out
-        </button>
-      </div>
     </section>
   );
 };

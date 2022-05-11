@@ -26,3 +26,24 @@ export const createOrder = (orderData) => async (dispatch) => {
     });
   }
 };
+
+export const listOrders = () => async (dispatch) => {
+  console.log("hi");
+  try {
+    dispatch({
+      type: orderConstants.ORDERLIST_FETCH_START,
+    });
+
+    const res = await orderServices.getOrders();
+
+    dispatch({
+      type: orderConstants.ORDERLIST_FETCH_SUCCESS,
+      payload: res,
+    });
+  } catch (err) {
+    dispatch({
+      type: orderConstants.ORDERLIST_FETCH_FAIL,
+      payload: err,
+    });
+  }
+};

@@ -2,12 +2,16 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Route, Navigate, Outlet } from "react-router-dom";
 
-export const PrivateRoute = ({ component: Component, ...rest }) => {
+export const PrivateRoute = ({ component: Component, redirctParam = "/" }) => {
   const userAuthData = useSelector((state) => state.userLogin);
 
   const { userInfo } = userAuthData;
 
-  return userInfo ? <Outlet /> : <Navigate to="/account/login" />;
+  return userInfo ? (
+    <Outlet />
+  ) : (
+    <Navigate to={`/account/login/${redirctParam}`} />
+  );
   // <Route
   //   {...rest}
   //   render={(props) =>
