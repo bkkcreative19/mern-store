@@ -17,10 +17,10 @@ import {
   ProductDetailsPage,
   ProductsPage,
   CartPage,
-  Login,
-  Register,
-  Profile,
-  PlaceOrder,
+  LoginPage,
+  RegisterPage,
+  ProfilePage,
+  PlaceOrderPage,
   CheckoutPage,
 } from "./pages";
 
@@ -46,24 +46,24 @@ const App = () => {
         <Route exact path="/products/:id" element={<ProductsPage />} />
         <Route exact path="/product/:id" element={<ProductDetailsPage />} />
         <Route exact path="/cart" element={<CartPage />} />
-        <Route exact path="account/login/:redirect" element={<Login />} />
-        <Route exact path="account/register" element={<Register />} />
+        <Route exact path="account/login/:redirect" element={<LoginPage />} />
+        <Route exact path="account/register" element={<RegisterPage />} />
 
         <Route
           exact
           path="/profile"
           element={<PrivateRoute redirctParam="profile" />}
         >
-          <Route exact path="/profile" element={<Profile />} />
+          <Route exact path="/profile" element={<ProfilePage />} />
         </Route>
         <Route exact path="/shipping" element={<PrivateRoute />}>
           <Route exact path="/shipping" element={<Shipping />} />
         </Route>
-        <Route exact path="/payment" element={<PrivateRoute />}>
+        {/* <Route exact path="/payment" element={<PrivateRoute />}>
           <Route exact path="/payment" element={<Payment />} />
-        </Route>
+        </Route> */}
         <Route exact path="/place-order" element={<PrivateRoute />}>
-          <Route exact path="/place-order" element={<PlaceOrder />} />
+          <Route exact path="/place-order" element={<PlaceOrderPage />} />
         </Route>
         {/* <Route exact path="/shipping" element={<Shipping />} /> */}
 

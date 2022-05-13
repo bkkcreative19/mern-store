@@ -2,22 +2,37 @@ import React, { useEffect, useState } from "react";
 import { useLocation, Outlet, Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-import "./CheckoutSteps.scss";
+import "./CheckoutPage.scss";
 import { IoIosArrowForward } from "react-icons/io";
 
 export const CheckoutPage = () => {
   const location = useLocation();
   const cart = useSelector((state) => state.cart);
-
+  const [shippingTotal, setShippingTotal] = useState("Free");
+  const [total, setTotal] = useState(
+    cart.cartItems
+      .reduce((acc, item) => acc + item.qty * item.price, 0)
+      .toFixed(2)
+  );
   const [test, setTest] = useState(location.pathname.split("/")[2]);
 
   useEffect(() => {
     setTest(location.pathname.split("/")[2]);
   }, [location.pathname]);
 
-  const total = cart.cartItems
-    .reduce((acc, item) => acc + item.qty * item.price, 0)
-    .toFixed(2);
+  useEffect(() => {
+    if (cart.paymentMethod === "express") {
+      setShippingTotal("$34.90");
+      setTotal(Number(total) + 34.9);
+    } else if (cart.paymentMethod === "standard") {
+      setShippingTotal("Free");
+      setTotal(
+        cart.cartItems
+          .reduce((acc, item) => acc + item.qty * item.price, 0)
+          .toFixed(2)
+      );
+    }
+  }, [cart.paymentMethod]);
 
   return (
     <section className="checkout__steps">
@@ -56,19 +71,22 @@ export const CheckoutPage = () => {
       </div>
       <div className="right">
         <div className="right-container">
-          {cart.cartItems.map((item) => {
-            return (
-              <div key={item.productId}>
-                <img src={item.productImage} alt="" />
-                <div className="item-content">
-                  <p>{item.productName}</p>
+          <div className="order-items">
+            {cart.cartItems.map((item) => {
+              return (
+                <div className="order-items__item" key={item.productId}>
+                  <img src={item.productImage} alt="" />
+                  <div className="item-content">
+                    <p>{item.productName}</p>
+                  </div>
+                  <span className="item-price">${item.price}.00</span>
                 </div>
-                <span className="item-price">${item.price}.00</span>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
+
           <div className="shipping-subtotal">
-            <div className="subtotal">
+            <div className="checkout-subtotal">
               <span>Subtotal</span>
               <strong>
                 $
@@ -77,14 +95,16 @@ export const CheckoutPage = () => {
                   .toFixed(2)}
               </strong>
             </div>
-            <div className="shipping">
+            <div className="checkout-shipping">
               <span>Shipping</span>
-              <strong>$34.90</strong>
+              <strong>{shippingTotal}</strong>
             </div>
           </div>
           <div className="checkout-total">
             <strong>Total</strong>
-            <span>${Number(total) + 34.9}</span>
+            <p>
+              <span>CAD</span>${total}
+            </p>
           </div>
         </div>
       </div>

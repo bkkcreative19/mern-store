@@ -28,7 +28,6 @@ export const createOrder = (orderData) => async (dispatch) => {
 };
 
 export const listOrders = () => async (dispatch) => {
-  console.log("hi");
   try {
     dispatch({
       type: orderConstants.ORDERLIST_FETCH_START,

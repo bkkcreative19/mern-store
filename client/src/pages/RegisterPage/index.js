@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import * as routes from "../../constants/routes";
 import * as userAction from "../../actions/userActions";
 import * as userConstants from "../../constants/userConstants";
-import "./Register.scss";
+import "./RegisterPage.scss";
 
-export const Register = () => {
+export const RegisterPage = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");

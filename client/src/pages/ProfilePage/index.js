@@ -5,10 +5,10 @@ import { useEffect } from "react";
 import { OrderList } from "../../components";
 import { useNavigate } from "react-router-dom";
 
-import "./Profile.scss";
+import "./ProfilePage.scss";
 import { logout } from "../../actions/userActions";
 
-export const Profile = () => {
+export const ProfilePage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const orderList = useSelector((state) => state.orderList);

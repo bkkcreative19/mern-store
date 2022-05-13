@@ -1,0 +1,141 @@
+.checkout__steps {
+  display: flex;
+
+  & .left {
+    width: 55%;
+
+    & h1 {
+      font-size: 5rem;
+    }
+
+    &-container {
+      width: 60%;
+      margin-left: auto;
+      margin-top: 6em;
+    }
+
+    & .steps {
+      display: flex;
+      margin-top: 2em;
+
+      & div {
+        cursor: pointer;
+        display: inline-block;
+        display: flex;
+        align-items: center;
+        font-size: 1.3rem;
+
+        & svg {
+        }
+      }
+
+      & div h3 {
+        font-weight: 400;
+        color: #1777b7;
+      }
+
+      & div:not(:first-child) h3 {
+        margin: 0 0.5em;
+      }
+
+      & div:first-child h3 {
+        margin-right: 0.5em;
+      }
+    }
+  }
+
+  & .right {
+    width: 45%;
+    background: #f9f9f9;
+    height: 100vh;
+    border-left: 1px solid #18181821;
+    padding: 0 4em;
+    padding-right: 8em;
+
+    &-container {
+      width: 60%;
+      margin-right: auto;
+      margin-top: 6em;
+
+      & .order-items {
+        border-bottom: 1px solid #1212121a;
+        padding-bottom: 2em;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5em;
+        &__item {
+          display: flex;
+          align-items: center;
+
+          & .item-content {
+            & p {
+              font-size: 1.3rem;
+              margin-left: 1.3em;
+            }
+          }
+
+          & .item-price {
+            margin-left: auto;
+            font-size: 1.4rem;
+            font-weight: 500;
+          }
+        }
+      }
+
+      & img {
+        height: 7rem;
+        width: 7rem;
+        border: 1px solid #1212121a;
+        border-radius: 1em;
+      }
+
+      & .shipping-subtotal {
+        margin-top: 2em;
+        border-bottom: 1px solid #1212121a;
+        padding-bottom: 2em;
+
+        & div {
+          display: flex;
+          justify-content: space-between;
+          font-size: 1.4rem;
+
+          & strong {
+            font-weight: 500;
+          }
+        }
+
+        & div:last-child {
+          margin-top: 0.5em;
+        }
+      }
+
+      & .checkout-total {
+        margin-top: 2.5em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        & strong {
+          font-size: 1.6rem;
+          font-weight: 500;
+          color: rgb(60, 46, 45);
+        }
+
+        & p {
+          font-size: 2.4rem;
+          font-weight: 500;
+
+          & span {
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-right: 0.8em;
+          }
+        }
+      }
+    }
+  }
+}
+
+.bold {
+  color: #181818 !important;
+}

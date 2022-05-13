@@ -6,7 +6,7 @@ import { useNavigate, useLocation, useParams } from "react-router-dom";
 import * as userConstants from "../../constants/userConstants";
 import "./Login.scss";
 
-export const Login = () => {
+export const LoginPage = () => {
   const navigate = useNavigate();
   const params = useParams();
   console.log(params);

@@ -11,9 +11,9 @@ export const Shipping = () => {
   const dispatch = useDispatch();
   const [shippingMethod, setShippingMethod] = useState("");
   const { shippingAddress } = cart;
+  console.log(cart);
 
   const submitHandler = () => {
-    dispatch(savePaymentMethod(shippingMethod));
     navigate("/checkout/payment");
   };
 
@@ -37,11 +37,12 @@ export const Shipping = () => {
         <h2>Shipping method</h2>
         <div className="standard">
           <input
-            onChange={(e) => setShippingMethod(e.target.value)}
+            onChange={(e) => dispatch(savePaymentMethod(e.target.value))}
             type="radio"
             name="shipping-method"
             id=""
             value="standard"
+            checked={cart.paymentMethod === "standard" ? "checked" : ""}
           />
           <div className="text">
             <p>Standard</p>
@@ -51,11 +52,12 @@ export const Shipping = () => {
         </div>
         <div className="express">
           <input
-            onChange={(e) => setShippingMethod(e.target.value)}
+            onChange={(e) => dispatch(savePaymentMethod(e.target.value))}
             type="radio"
             name="shipping-method"
             id=""
             value="express"
+            checked={cart.paymentMethod === "express" ? "checked" : ""}
           />
           <div className="text">
             <p>Express</p>

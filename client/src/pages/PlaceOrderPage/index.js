@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { createOrder } from "../../actions/orderActions";
 
-export const PlaceOrder = () => {
+export const PlaceOrderPage = () => {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
   const { shippingAddress, paymentMethod, cartItems } = cart;
