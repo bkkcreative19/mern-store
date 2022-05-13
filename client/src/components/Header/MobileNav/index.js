@@ -12,6 +12,13 @@ export const MobileNav = () => {
     <nav className="mobile-nav">
       <ul className="mobile-nav__list">
         <Link
+          className={location.pathname.split("/")[2] === "all" ? "active" : ""}
+          to="/products/all"
+        >
+          <li>All</li>
+          <BsArrowRight />
+        </Link>
+        <Link
           className={location.pathname.split("/")[2] === "bags" ? "active" : ""}
           to="/products/bags"
         >

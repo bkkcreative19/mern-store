@@ -22,10 +22,17 @@
 
   &__products-section {
     margin-top: 3em;
+    position: relative;
     &-head {
       display: grid;
       grid-template-columns: 60% 30% 10%;
       margin-bottom: 1.7em;
+
+      @media screen and (max-width: 750px) {
+        & h4:nth-child(2) {
+          display: none;
+        }
+      }
 
       & h4 {
         font-size: 1.1rem;
@@ -37,6 +44,11 @@
 
       & h4:last-child {
         justify-self: end;
+
+        @media screen and (max-width: 750px) {
+          position: absolute;
+          right: 0;
+        }
       }
     }
 
@@ -54,6 +66,10 @@
     align-items: flex-end;
     margin-top: 4em;
     margin-bottom: 4em;
+
+    @media screen and (max-width: 750px) {
+      align-items: center;
+    }
 
     & .subtotal {
       display: flex;
@@ -88,6 +104,10 @@
       color: #fff;
       width: 30%;
       margin-top: 0.3em;
+
+      @media screen and (max-width: 750px) {
+        width: 40%;
+      }
     }
   }
 }

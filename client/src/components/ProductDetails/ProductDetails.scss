@@ -2,18 +2,45 @@
   display: flex;
   gap: 5rem;
 
+  @media screen and (max-width: 750px) {
+    flex-direction: column;
+  }
+
   &__image {
     width: 65%;
+
+    @media screen and (max-width: 1000px) {
+      width: 40%;
+      height: 400px;
+    }
+
+    @media screen and (max-width: 750px) {
+      width: 100%;
+    }
+
     & img {
       height: 717px;
       width: 100%;
       object-fit: cover;
+
+      @media screen and (max-width: 1000px) {
+        height: 400px;
+      }
+
+      @media screen and (max-width: 750px) {
+        height: auto;
+      }
     }
   }
 
   &__info {
     width: 35%;
     padding: 0.3em 0;
+
+    @media screen and (max-width: 750px) {
+      width: 100%;
+      margin-top: 35em;
+    }
 
     & h2 {
       font-weight: 400;
@@ -44,6 +71,11 @@
         justify-content: space-between;
         padding: 0.6em 1em;
 
+        @media screen and (max-width: 750px) {
+          width: 20%;
+          margin-bottom: 1.5em;
+        }
+
         & .change {
           cursor: pointer;
         }
@@ -57,6 +89,11 @@
 
       padding: 1em 0;
       font-size: 1.4rem;
+
+      @media screen and (max-width: 750px) {
+        display: block;
+        width: 60%;
+      }
     }
 
     & .addToCart {
