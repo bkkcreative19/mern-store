@@ -27,15 +27,6 @@ export const MobileNav = () => {
           <li>Shoes</li>
           <BsArrowRight />
         </Link>
-        <Link
-          className={
-            location.pathname.split("/")[1] === "lookbook" ? "active" : ""
-          }
-          to="/lookbook"
-        >
-          <li>Lookbook</li>
-          <BsArrowRight />
-        </Link>
       </ul>
       <div className="mobile-nav__bottom">
         <Link to="/profile">

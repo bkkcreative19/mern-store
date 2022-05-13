@@ -12,7 +12,7 @@ export const BackInStock = () => {
         <div className="left bags">
           <div className="left__img">
             <img
-              src="https://cdn.shopify.com/s/files/1/0551/9242/0441/collections/Mlouye_-_Bags_collection_750x.jpg?v=1637109194"
+              src="https://images.unsplash.com/photo-1516762689617-e1cffcef479d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=711&q=80"
               alt=""
             />
           </div>
@@ -40,7 +40,7 @@ export const BackInStock = () => {
           <div className="shoes">
             <div className="shoes__img">
               <img
-                src="https://cdn.shopify.com/s/files/1/0551/9242/0441/collections/Mlouye_-_Shoe_collection_750x.jpg?v=1637109743"
+                src="https://images.unsplash.com/photo-1519415943484-9fa1873496d4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTN8fHdvbWVuJTIwc2hvZXN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60"
                 alt=""
               />
             </div>

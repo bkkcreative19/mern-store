@@ -15,7 +15,7 @@ export const Payment = () => {
   const cart = useSelector((state) => state.cart);
   const userLogin = useSelector((state) => state.userLogin);
 
-  const { paymentMethod, shippingAddress } = cart;
+  const { shippingType, shippingAddress } = cart;
 
   return (
     <section className="payment">
@@ -35,8 +35,8 @@ export const Payment = () => {
         <div className="method">
           <h4>Method</h4>
           <p>
-            {paymentMethod}{" "}
-            <strong>{paymentMethod === "express" ? "$34.90" : "Free"}</strong>
+            {shippingType}{" "}
+            <strong>{shippingType === "express" ? "$34.90" : "Free"}</strong>
           </p>
         </div>
       </div>

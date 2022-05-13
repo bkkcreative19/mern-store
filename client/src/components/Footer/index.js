@@ -20,12 +20,13 @@ export const Footer = () => {
           <div className="quick-links">
             <h2 data-testid="footer-header">Quick links</h2>
             <ul>
+              <Link to="/products/all">
+                <li>Shop all</li>
+              </Link>
               <Link to="/products/shoes">
-                <li>Shoes</li>
+                <li className="mt">Shoes</li>
               </Link>
-              <Link to="/products/shirts">
-                <li className="mt">Shirts</li>
-              </Link>
+
               <Link to="/products/bags">
                 <li className="mt">Bags</li>
               </Link>
@@ -42,9 +43,6 @@ export const Footer = () => {
               </Link>
               <Link to="/shipping-policy">
                 <li className="mt">Shipping policy</li>
-              </Link>
-              <Link to="/blog">
-                <li className="mt">Blog</li>
               </Link>
             </ul>
           </div>

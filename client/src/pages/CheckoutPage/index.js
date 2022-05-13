@@ -21,10 +21,10 @@ export const CheckoutPage = () => {
   }, [location.pathname]);
 
   useEffect(() => {
-    if (cart.paymentMethod === "express") {
+    if (cart.shippingType === "express") {
       setShippingTotal("$34.90");
       setTotal(Number(total) + 34.9);
-    } else if (cart.paymentMethod === "standard") {
+    } else if (cart.shippingType === "standard") {
       setShippingTotal("Free");
       setTotal(
         cart.cartItems
@@ -32,7 +32,7 @@ export const CheckoutPage = () => {
           .toFixed(2)
       );
     }
-  }, [cart.paymentMethod]);
+  }, [cart.shippingType]);
 
   return (
     <section className="checkout__steps">

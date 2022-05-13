@@ -51,13 +51,13 @@ export const Header = () => {
 
         <ul className="header__nav-list">
           <li>
+            <Link to="/products/all">Shop all</Link>
+          </li>
+          <li>
             <Link to="/products/shoes">Shoes</Link>
           </li>
           <li>
             <Link to="/products/bags">Bags</Link>
-          </li>
-          <li>
-            <Link to="/lookbook">Lookbook</Link>
           </li>
         </ul>
         <div className="header__nav-icons">

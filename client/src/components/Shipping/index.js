@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { savePaymentMethod } from "../../actions/cartActions";
+import { saveShippingType } from "../../actions/cartActions";
 import "./Shipping.scss";
 
 export const Shipping = () => {
@@ -9,14 +9,12 @@ export const Shipping = () => {
   const userLogin = useSelector((state) => state.userLogin);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const [shippingMethod, setShippingMethod] = useState("");
   const { shippingAddress } = cart;
-  console.log(cart);
 
   const submitHandler = () => {
     navigate("/checkout/payment");
   };
-
+  // console.log(cart.shippingType);
   return (
     <section className="shipping">
       <div className="info">
@@ -37,12 +35,12 @@ export const Shipping = () => {
         <h2>Shipping method</h2>
         <div className="standard">
           <input
-            onChange={(e) => dispatch(savePaymentMethod(e.target.value))}
+            onChange={(e) => dispatch(saveShippingType(e.target.value))}
             type="radio"
             name="shipping-method"
             id=""
             value="standard"
-            checked={cart.paymentMethod === "standard" ? "checked" : ""}
+            checked={cart.shippingType === "standard" ? "checked" : ""}
           />
           <div className="text">
             <p>Standard</p>
@@ -52,12 +50,12 @@ export const Shipping = () => {
         </div>
         <div className="express">
           <input
-            onChange={(e) => dispatch(savePaymentMethod(e.target.value))}
+            onChange={(e) => dispatch(saveShippingType(e.target.value))}
             type="radio"
             name="shipping-method"
             id=""
             value="express"
-            checked={cart.paymentMethod === "express" ? "checked" : ""}
+            checked={cart.shippingType === "express" ? "checked" : ""}
           />
           <div className="text">
             <p>Express</p>

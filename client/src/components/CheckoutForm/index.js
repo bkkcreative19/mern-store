@@ -1,25 +1,24 @@
 import React, { useState, useEffect } from "react";
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
 import { useDispatch } from "react-redux";
+
 import axios from "axios";
 import "./CheckoutForm.scss";
+import * as stripeServices from "../../services/stripeServices";
 import { useSelector } from "react-redux";
 import { createOrder } from "../../actions/orderActions";
 
 export const CheckoutForm = () => {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
+  const stripe = useStripe();
+  const elements = useElements();
   const [succeeded, setSucceeded] = useState(false);
   const [error, setError] = useState(null);
   const [processing, setProcessing] = useState("");
   const [disabled, setDisabled] = useState(true);
 
-  const { paymentMethod } = cart;
-
-  console.log(paymentMethod);
-
-  const stripe = useStripe();
-  const elements = useElements();
+  const { shippingType } = cart;
 
   const cardStyle = {
     style: {
@@ -49,49 +48,35 @@ export const CheckoutForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    let shippingPrice;
+
     const { error, paymentMethod } = await stripe.createPaymentMethod({
       type: "card",
       card: elements.getElement(CardElement),
     });
 
-    const shippingPrice = paymentMethod === "express" ? 34.99 : 0;
-
-    if (!error) {
-      console.log("Stripe 23 | token generated!", paymentMethod);
-      try {
-        const { id } = paymentMethod;
-        const response = await axios.post(
-          "http://localhost:5000/stripe/charge",
-          {
-            amount:
-              Number(
-                cart.cartItems
-                  .reduce((acc, item) => acc + item.qty * item.price, 0)
-                  .toFixed(2)
-              ) *
-                100 +
-              shippingPrice,
-            id: id,
-          }
-        );
-
-        if (response.data.success) {
-        }
-      } catch (error) {}
+    if (shippingType === "express") {
+      shippingPrice = 34.99;
+    } else if (shippingType === "standard") {
+      shippingPrice = 0;
     }
+
+    let totalAmount = cart.cartItems
+      .reduce((acc, item) => acc + item.qty * item.price, 0)
+      .toFixed(2);
+
+    totalAmount = Number(totalAmount) + shippingPrice;
+
+    stripeServices.createCharge(totalAmount, paymentMethod, error);
 
     dispatch(
       createOrder({
         orderItems: cart.cartItems,
         shippingAddress: cart.shippingAddress,
-        paymentMethod: cart.paymentMethod,
+        paymentMethod: cart.shippingType,
         itemsPrice: cart.itemsPrice,
-        shippingPrice: 34.99,
-        totalPrice: Number(
-          cart.cartItems
-            .reduce((acc, item) => acc + item.qty * item.price, 0)
-            .toFixed(2)
-        ),
+        shippingPrice: shippingPrice,
+        totalPrice: totalAmount,
       })
     );
   };
@@ -122,7 +107,6 @@ export const CheckoutForm = () => {
       <p className={succeeded ? "result-message" : "result-message hidden"}>
         Payment succeeded, see the result in your
         <a href={`https://dashboard.stripe.com/test/payments`}>
-          {" "}
           Stripe dashboard.
         </a>{" "}
         Refresh the page to pay again.

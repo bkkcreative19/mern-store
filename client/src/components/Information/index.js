@@ -28,7 +28,7 @@ export const Information = () => {
         firstName,
         lastName,
         address,
-        apartment,
+        apartment: apartment ? apartment : "",
         city,
         country,
         state,

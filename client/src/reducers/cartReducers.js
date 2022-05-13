@@ -37,10 +37,10 @@ export const cartReducer = (
         ...state,
         shippingAddress: action.payload,
       };
-    case cartConstants.CART_SAVE_PAYMENT_METHOD:
+    case cartConstants.CART_SAVE_SHIPPING_TYPE:
       return {
         ...state,
-        paymentMethod: action.payload,
+        shippingType: action.payload,
       };
     // case cartConstants.CART_RESET:
     //   return {

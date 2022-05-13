@@ -52,11 +52,11 @@ export const saveShippingAddress = (data) => async (dispatch) => {
   localStorage.setItem("shippingAddress", JSON.stringify(data));
 };
 
-export const savePaymentMethod = (data) => async (dispatch) => {
+export const saveShippingType = (data) => async (dispatch) => {
   dispatch({
-    type: cartConstants.CART_SAVE_PAYMENT_METHOD,
+    type: cartConstants.CART_SAVE_SHIPPING_TYPE,
     payload: data,
   });
 
-  localStorage.setItem("paymentMethod", JSON.stringify(data));
+  localStorage.setItem("shippingType", JSON.stringify(data));
 };
