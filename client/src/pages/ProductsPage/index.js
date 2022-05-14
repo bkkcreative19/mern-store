@@ -49,7 +49,7 @@ export const ProductsPage = () => {
       ) : products ? (
         <ProductList products={products.results} />
       ) : (
-        "hi"
+        ""
       )}
     </section>
   );

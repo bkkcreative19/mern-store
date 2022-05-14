@@ -23,6 +23,19 @@ export const Information = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    if (
+      !firstName ||
+      !lastName ||
+      !address ||
+      !city ||
+      !postalCode ||
+      !country ||
+      !state
+    ) {
+      alert("Field cannot be empty");
+      return;
+    }
+
     dispatch(
       saveShippingAddress({
         firstName,

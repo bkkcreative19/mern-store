@@ -12,7 +12,6 @@ export const ProfilePage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const orderList = useSelector((state) => state.orderList);
-  console.log(orderList);
 
   const { orders } = orderList;
 

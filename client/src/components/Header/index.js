@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-import { AiOutlineSearch, AiOutlineUser } from "react-icons/ai";
+import { AiOutlineUser } from "react-icons/ai";
 import { RiShoppingBag2Line } from "react-icons/ri";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { GrClose } from "react-icons/gr";
@@ -61,14 +61,11 @@ export const Header = () => {
           </li>
         </ul>
         <div className="header__nav-icons">
-          {/* <AiOutlineSearch /> */}
-
           <Link to="/profile">
             <AiOutlineUser className="user-icon" />
           </Link>
           <Link to="/cart">
             <RiShoppingBag2Line />
-
             {cartItems.length > 0 && (
               <span>{cartItems.reduce((acc, item) => acc + item.qty, 0)}</span>
             )}

@@ -15,8 +15,16 @@
     gap: 1rem;
     height: 800px;
 
+    @media screen and (max-width: 850px) {
+      flex-direction: column;
+    }
+
     & .left {
       width: 70%;
+
+      @media screen and (max-width: 850px) {
+        width: 100%;
+      }
 
       & span {
         font-size: 2rem;
@@ -52,6 +60,10 @@
     }
 
     & .right {
+      @media screen and (max-width: 850px) {
+        display: flex;
+      }
+
       & .shoes {
         height: 44%;
 

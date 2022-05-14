@@ -8,14 +8,8 @@ import { PriceDropDown } from "./PriceDropDown";
 import Select from "react-select";
 import "./Filter.scss";
 
-export const Filter = ({
-  handleFilters,
-  filters,
-  numOfProducts,
-  highestPrice,
-  products,
-}) => {
-  const [test, setTest] = React.useState(options[0]);
+export const Filter = ({ handleFilters, numOfProducts }) => {
+  const [sortValue, setSortValue] = useState(options[0]);
   const [lessThan, setLessThan] = useState(0);
   const [greaterThan, setGreaterThan] = useState(700);
   const [inStock, setInStock] = useState();
@@ -47,8 +41,8 @@ export const Filter = ({
   };
 
   useEffect(() => {
-    handleFilters("sort", test.value);
-  }, [test]);
+    handleFilters("sort", sortValue.value);
+  }, [sortValue]);
 
   useEffect(() => {
     handleFilters("isInStock", inStock);
@@ -64,7 +58,7 @@ export const Filter = ({
   }, [lessThan, greaterThan]);
 
   return (
-    <section className="filter-sort">
+    <section className="filter-sort-bar">
       <div className="filter">
         <h3 className="filter__desktop">Filter:</h3>
         <h3 className="filter__mobile">
@@ -94,8 +88,8 @@ export const Filter = ({
       <div className="sort">
         <h3>Sort by:</h3>
         <Select
-          defaultValue={test}
-          onChange={setTest}
+          defaultValue={sortValue}
+          onChange={setSortValue}
           styles={customStyles}
           options={options}
           className="select"

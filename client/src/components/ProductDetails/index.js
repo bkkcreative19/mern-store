@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./ProductDetails.scss";
 
 export const ProductDetails = ({ product, qty, setQty, addToCartHandler }) => {
@@ -36,10 +36,9 @@ export const ProductDetails = ({ product, qty, setQty, addToCartHandler }) => {
             </span>
           </div>
         </div>
-        <button onClick={addToCartHandler} className="btn addToCart">
+        <button onClick={addToCartHandler} className="btn buy">
           Add to cart
         </button>
-        <button className="btn buy">Buy it now</button>
       </div>
     </section>
   );

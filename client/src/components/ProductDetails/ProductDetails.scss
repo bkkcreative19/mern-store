@@ -96,18 +96,15 @@
       }
     }
 
-    & .addToCart {
-      background: transparent;
-
-      border: 1px solid #121212;
-
-      margin-top: 1em;
-    }
-
     & .buy {
       background: #121212;
       color: #fff;
       margin-top: 0.8em;
+
+      &:disabled {
+        background: #807e7e2d;
+        cursor: not-allowed;
+      }
     }
   }
 }

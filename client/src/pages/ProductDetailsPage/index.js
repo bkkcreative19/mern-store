@@ -13,6 +13,8 @@ export const ProductDetailsPage = () => {
   const navigate = useNavigate();
   const [qty, setQty] = useState(1);
 
+  const cart = useSelector((state) => state.cart);
+
   const productDetails = useSelector((state) => state.productDetails);
   const { loading, error, product } = productDetails;
 

@@ -2,13 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./Footer.scss";
 
-import {
-  AiOutlineTwitter,
-  AiFillFacebook,
-  AiOutlineInstagram,
-  AiFillYoutube,
-} from "react-icons/ai";
-import { FaTiktok } from "react-icons/fa";
 import { BsArrowRight } from "react-icons/bs";
 import { SocialIcons } from "../SocialIcons";
 

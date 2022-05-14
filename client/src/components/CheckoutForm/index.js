@@ -4,12 +4,14 @@ import { useDispatch } from "react-redux";
 
 import axios from "axios";
 import "./CheckoutForm.scss";
+import { useNavigate } from "react-router-dom";
 import * as stripeServices from "../../services/stripeServices";
 import { useSelector } from "react-redux";
 import { createOrder } from "../../actions/orderActions";
 
 export const CheckoutForm = () => {
   const cart = useSelector((state) => state.cart);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const stripe = useStripe();
   const elements = useElements();
@@ -79,6 +81,7 @@ export const CheckoutForm = () => {
         totalPrice: totalAmount,
       })
     );
+    navigate("/profile");
   };
 
   return (

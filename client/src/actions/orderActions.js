@@ -1,5 +1,4 @@
 import * as orderServices from "../services/orderServices";
-// import { handleError } from '../utils/error';
 import * as orderConstants from "../constants/orderConstants";
 import * as cartConstants from "../constants/cartConstants";
 
@@ -15,7 +14,7 @@ export const createOrder = (orderData) => async (dispatch) => {
     });
     localStorage.removeItem("cartItems");
     localStorage.removeItem("shippingAddress");
-    localStorage.removeItem("paymentMethod");
+    localStorage.removeItem("shippingType");
     dispatch({
       type: cartConstants.CART_RESET,
     });
