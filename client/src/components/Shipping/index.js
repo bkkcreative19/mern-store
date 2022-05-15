@@ -14,7 +14,6 @@ export const Shipping = () => {
   const submitHandler = () => {
     navigate("/checkout/payment");
   };
-  // console.log(cart.shippingType);
   return (
     <section className="shipping">
       <div className="info">
