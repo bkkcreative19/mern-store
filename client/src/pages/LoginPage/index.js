@@ -51,7 +51,7 @@ export const LoginPage = () => {
           type="password"
           placeholder="Password"
         />
-        <button onClick={submitHandler}>Sign in</button>
+        <button onClick={submitHandler}>Log in</button>
       </form>
     </section>
   );
